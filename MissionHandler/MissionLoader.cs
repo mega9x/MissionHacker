@@ -20,7 +20,7 @@ public class MissionLoader
                 .Deserialize<IEnumerable<MissionConfigModel>>(await File.ReadAllTextAsync(ConfigPath.CONST_MISSION)) ?? Array.Empty<MissionConfigModel>())
             .ToList();
         var blockList = new List<MissionConfigModel>();
-        var blockListPath = ConfigPath.BlockList.Replace("date", DateTime.Now.ToString("yyyy-M-d"));
+        var blockListPath = ConfigPath.BLOCK_LSIT.Replace("date", DateTime.Now.ToString("yyyy-M-d"));
         if (!string.IsNullOrEmpty(blockListPath))
         {
             if (!File.Exists(blockListPath))
@@ -29,23 +29,33 @@ public class MissionLoader
             }
             else
             {
-                blockList = (JsonSerializer.Deserialize<IEnumerable<MissionConfigModel>>(File.ReadAllText(blockListPath)) ?? Array.Empty<MissionConfigModel>())
-                    .ToList();
-                blockList = blockList.Where(s =>
-                    Missions.AllMissionsKeywordSupported.Contains(s.Keyword)
-                ).ToList();
+                try
+                {
+                    blockList =
+                        (JsonSerializer.Deserialize<IEnumerable<MissionConfigModel>>(File.ReadAllText(blockListPath)) ??
+                         Array.Empty<MissionConfigModel>())
+                        .ToList();
+                    blockList = blockList.Where(s =>
+                        Missions.AllMissionsKeywordSupported.Contains(s.Keyword)
+                    ).ToList();
+                }
+                catch(Exception e)
+                {
+                    blockList = new();
+                }
+
             }
         }
         // 处理获取的任务列表并去除不做的任务
         foreach (var l in list)
         {
             // 如果黑名单
-            if (blockList.Find(i => l.Name.Contains(i.Keyword)) is not null)
+            if (blockList.Find(i => l.Name.ToLower().Contains(i.Keyword)) is not null)
             {
                 continue;
             }
             // 如果这个任务关键词是匹配的
-            var keyword = Missions.AllMissionsKeywordSupported.Find(i => l.Name.Contains(i));
+            var keyword = Missions.AllMissionsKeywordSupported.Find(i => l.Name.ToLower().Contains(i));
             if (keyword is null)
             {
                 continue;

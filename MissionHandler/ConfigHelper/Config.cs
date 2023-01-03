@@ -1,13 +1,15 @@
 ﻿using System.Text.Json;
 using Models;
 using Models.ConstStr;
+using Models.Enums;
 
 namespace MissionHacker.ConfigHelper;
 
 public class Config
 {
     public General? General { get; private set; }
-    public Config()
+    public static Config Instance = new Lazy<Config>(() => new Config()).Value;
+    private Config()
     {
         if (!Directory.Exists(ConfigPath.CONFIG_ROOT))
         {
@@ -28,12 +30,16 @@ public class Config
             File.Create(ConfigPath.CONST_MISSION).Close();
             File.WriteAllText(ConfigPath.CONST_MISSION, str);
         }
-        if (!File.Exists(ConfigPath.MailPool))
+        if (!File.Exists(ConfigPath.MAIL_POOL))
         {
-            File.Create(ConfigPath.MailPool).Close();
-            File.WriteAllText(ConfigPath.MailPool ,$"邮箱: xx@outlook.com | 密码: xxxxxx");
+            File.Create(ConfigPath.MAIL_POOL).Close();
+            File.WriteAllText(ConfigPath.MAIL_POOL ,$"邮箱: xx@outlook.com | 密码: xxxxxx");
         }
 
+        if (!File.Exists(ConfigPath.CONFIG_MAIL_USED))
+        {
+            File.Create(ConfigPath.CONFIG_MAIL_USED).Close();
+        }
         if (!File.Exists(ConfigPath.CONFIG_GENERAL))
         {
             var str = JsonSerializer.Serialize(new General());
@@ -41,5 +47,11 @@ public class Config
             File.WriteAllText(ConfigPath.CONFIG_GENERAL, str);
         }
         General = JsonSerializer.Deserialize<General>(File.ReadAllText(ConfigPath.CONFIG_GENERAL));
+        if (!File.Exists(ConfigPath.SUPPORT_LIST))
+        {
+            var str = JsonSerializer.Serialize(Missions.AllMissionsKeywordSupported);
+            File.Create(ConfigPath.SUPPORT_LIST).Close();
+            File.WriteAllText(ConfigPath.SUPPORT_LIST,str);
+        }
     }
 }

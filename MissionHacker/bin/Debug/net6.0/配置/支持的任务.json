@@ -1,8 +1,14 @@
 [
   {
-    "Keyword": "关键字",
+    "Keyword": "elitesingles",
     "Area": "US",
-    "MaxTimes": 2,
-    "MinTimes": 1
+    "MaxTimes": 5,
+    "MinTimes": 2
+  },
+  {
+    "Keyword": "flirt-dating",
+    "Area": "CA",
+    "MaxTimes": 5,
+    "MinTimes": 2
   }
 ]

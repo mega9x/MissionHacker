@@ -2,8 +2,15 @@
 
 using System.Text.Json;
 using MissionHacker.ConfigHelper;
+using MissionHandler;
 using Models;
 using Models.ConstStr;
 
 Console.WriteLine("Hello, World!");
-new Config();
+var config = Config.Instance;
+var missionLoader = new MissionLoader();
+await missionLoader.LoadMission();
+foreach (var l in missionLoader.MissionList)
+{
+    Console.WriteLine(l.Platform);
+}
