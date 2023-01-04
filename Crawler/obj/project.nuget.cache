@@ -1,13 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "7ArtrjDZfJ1yev+OYvWg4bSdwIH/o6eykLOEZTtD7DyojyBDogASl70rk8nBZJO7tNWyzR/FZvL+zhTI5cE7dw==",
+  "dgSpecHash": "k3UsnJKlpDWnO9fKNYl9FiZeLMXKTvVLaMvTksZ7IOvqZtVQzu5NKxQXCI6DkQEpcfh2WYD+YAGACMpWg0HBRg==",
   "success": true,
   "projectFilePath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\Crawler.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YK\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\selenium.support\\4.7.0\\selenium.support.4.7.0.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\selenium.undetectedchromedriver\\1.0.7\\selenium.undetectedchromedriver.1.0.7.nupkg.sha512",
-    "C:\\Users\\YK\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512"
+    "C:\\Users\\YK\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\selenium.webdriver.chromedriver\\104.0.5112.7900\\selenium.webdriver.chromedriver.104.0.5112.7900.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\useragentgenerator\\1.22.807.1109\\useragentgenerator.1.22.807.1109.nupkg.sha512"
   ],
   "logs": []
 }

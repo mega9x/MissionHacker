@@ -18,3 +18,15 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\obj\Debu
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\obj\Debug\net6.0\MissionHacker.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\obj\Debug\net6.0\MissionHacker.genruntimeconfig.cache
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\obj\Debug\net6.0\ref\MissionHacker.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Newtonsoft.Json.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\WebDriver.Support.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\UndetectedChromeDriver.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\WebDriver.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\UserAgentGenerator.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Config.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Crawler.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Config.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Crawler.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe

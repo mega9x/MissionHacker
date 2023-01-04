@@ -59,22 +59,40 @@
           "build/_._": {}
         }
       },
-      "MissionHandler/1.0.0": {
+      "Selenium.WebDriver.ChromeDriver/104.0.5112.7900": {
+        "type": "package",
+        "build": {
+          "build/Selenium.WebDriver.ChromeDriver.targets": {}
+        }
+      },
+      "UserAgentGenerator/1.22.807.1109": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/UserAgentGenerator.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/UserAgentGenerator.dll": {}
+        }
+      },
+      "Config/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Models": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/MissionHandler.dll": {}
+          "bin/placeholder/Config.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MissionHandler.dll": {}
+          "bin/placeholder/Config.dll": {}
         }
       },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Selenium.WebDriver": "4.7.0"
+        },
         "compile": {
           "bin/placeholder/Models.dll": {}
         },
@@ -183,10 +201,41 @@
         "selenium.webdriver.nuspec"
       ]
     },
-    "MissionHandler/1.0.0": {
+    "Selenium.WebDriver.ChromeDriver/104.0.5112.7900": {
+      "sha512": "vDH+7FqF4APZtvqyqtJ8XYTTh523EsUV88CpqW4d2xjxKjUp6ifpeLi9rDhnSuruDIoQDLJvRBZPI7UlcMTXOw==",
+      "type": "package",
+      "path": "selenium.webdriver.chromedriver/104.0.5112.7900",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "build/DefinePropertiesChromeDriver.targets",
+        "build/Selenium.WebDriver.ChromeDriver.targets",
+        "driver/linux64/chromedriver",
+        "driver/mac64/chromedriver",
+        "driver/mac64arm/chromedriver",
+        "driver/win32/chromedriver.exe",
+        "nupkg-icon.png",
+        "selenium.webdriver.chromedriver.104.0.5112.7900.nupkg.sha512",
+        "selenium.webdriver.chromedriver.nuspec"
+      ]
+    },
+    "UserAgentGenerator/1.22.807.1109": {
+      "sha512": "gSp6LppMmd9mM3QT6XnATN+uS0Dr5tXZ+/VXHf3bZJM23RWGgH5seqJsbM5Gt0VB1ke4LVZfvJTeMJCjYj1/7A==",
+      "type": "package",
+      "path": "useragentgenerator/1.22.807.1109",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/netstandard2.0/UserAgentGenerator.dll",
+        "useragentgenerator.1.22.807.1109.nupkg.sha512",
+        "useragentgenerator.nuspec"
+      ]
+    },
+    "Config/1.0.0": {
       "type": "project",
-      "path": "../MissionHandler/MissionHandler.csproj",
-      "msbuildProject": "../MissionHandler/MissionHandler.csproj"
+      "path": "../Config/Config.csproj",
+      "msbuildProject": "../Config/Config.csproj"
     },
     "Models/1.0.0": {
       "type": "project",
@@ -196,9 +245,11 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "MissionHandler >= 1.0.0",
+      "Config >= 1.0.0",
       "Selenium.Support >= 4.7.0",
-      "Selenium.UndetectedChromeDriver >= 1.0.7"
+      "Selenium.UndetectedChromeDriver >= 1.0.7",
+      "Selenium.WebDriver.ChromeDriver >= 104.0.5112.7900",
+      "UserAgentGenerator >= 1.22.807.1109"
     ]
   },
   "packageFolders": {
@@ -234,8 +285,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\MissionHandler.csproj": {
-              "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\MissionHandler.csproj"
+            "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj": {
+              "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj"
             }
           }
         }
@@ -257,6 +308,14 @@
           "Selenium.UndetectedChromeDriver": {
             "target": "Package",
             "version": "[1.0.7, )"
+          },
+          "Selenium.WebDriver.ChromeDriver": {
+            "target": "Package",
+            "version": "[104.0.5112.7900, )"
+          },
+          "UserAgentGenerator": {
+            "target": "Package",
+            "version": "[1.22.807.1109, )"
           }
         },
         "imports": [

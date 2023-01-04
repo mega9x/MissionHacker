@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "PegbUB3OKlKzJMquU4yjBVg2lTmu4b/PrgAUsVkkgOEA8x/NMGe6vtNHNZwbzuQg3rH1odszZLYPDHqEHAqtZw==",
+  "dgSpecHash": "oEng6UbChZDJ18iz8LJQ9WqoUh2aFCYURR/4zrjFuFaib7ZUrStHi9JUT7GDOYIu8X1rjMHEeKkm9qiBeKN8BQ==",
   "success": true,
   "projectFilePath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\YK\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

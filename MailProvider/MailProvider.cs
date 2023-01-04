@@ -12,11 +12,22 @@ public class MailProvider
     }
     public string GetMail()
     {
-        if (index <= AllMail.Count)
+        var str = "";
+        while (true)
         {
-            return "";
+            index++;
+            if (index >= AllMail.Count)
+            {
+                break;
+            }
+            str = AllMail[index--];
+            if (File.ReadAllLines(ConfigPath.CONFIG_MAIL_USED).Contains(str))
+            {
+                continue;
+            }
+            File.AppendAllText(ConfigPath.CONFIG_MAIL_USED,  $"{AllMail[index]}{Environment.NewLine}");
+            break;
         }
-        var str = AllMail[index];
         return str;
     }
 }

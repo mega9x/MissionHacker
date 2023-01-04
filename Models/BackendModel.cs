@@ -8,6 +8,8 @@ public class BackendModel
     public string Name { get; set; } = "";
     [JsonPropertyName("platform")]
     public string Platform { get; set; } = "";
+    [JsonPropertyName("domain")]
+    public string Domain { get; set; } = "";
     [JsonPropertyName("link")]
     public string Link { get; set; } = "";
     [JsonPropertyName("code")]

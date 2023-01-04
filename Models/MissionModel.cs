@@ -6,8 +6,8 @@ public class MissionModel
     // 锁定后, 将会返回空字符串
     private bool _linkLock = false;
     private bool _codeLock = false;
-    private List<string> Links { get; set; } = new();
-    private List<string> Codes { get; set; } = new();
+    private List<Links> Links { get; set; } = new();
+    private List<Codes> Codes { get; set; } = new();
     private int CodesIndex = 0;
     private int LinksIndex = 0;
     
@@ -57,17 +57,27 @@ public class MissionModel
         return this;
     }
 
-    public MissionModel PushLink(string link)
+    public MissionModel PushLink(string link, string domain)
     {
-        Links.Add(link);
+        Links.Add(new()
+        {
+            Link = link,
+            Domain = domain
+        });
         return this;
     }
-    public MissionModel PushCode(string code)
+    public MissionModel PushCode(string code, string domain)
     {
-        Codes.Add(code);
+        Codes.Add(new ()
+        {
+            Code = code,
+            Domain = domain
+        });
         return this;
     }
-    
-    public string GetLink() => _linkLock ? Links[LinksIndex] : "";
-    public string GetCodes() => _codeLock ? Codes[CodesIndex] : "";
+
+    public bool IsLinksAllHandled() => _linkLock;
+    public bool IsCodesAllHandled() => _codeLock;
+    public Links? GetLink() => _linkLock ? Links[LinksIndex] : null;
+    public Codes? GetCodes() => _codeLock ? Codes[CodesIndex] : null;
 }

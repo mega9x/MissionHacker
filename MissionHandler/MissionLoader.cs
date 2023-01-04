@@ -15,10 +15,34 @@ public class MissionLoader
     {
         var client = new HttpClient();
         var response = await client.GetStreamAsync(Api.GET_MISSION);
-        var list = JsonSerializer.Deserialize<IEnumerable<BackendModel>>(response);
-        var missionList = (JsonSerializer
+        var list = JsonSerializer.Deserialize<IEnumerable<BackendModel>>(response).ToList();
+        var supportedMissions = (JsonSerializer
                 .Deserialize<IEnumerable<MissionConfigModel>>(await File.ReadAllTextAsync(ConfigPath.CONST_MISSION)) ?? Array.Empty<MissionConfigModel>())
             .ToList();
+        var missionHasLink = list.Where(i => i.Link is not null && i.Link.Length > 0);
+        var missionHasCode = list.Where(i => i.Code is not null && i.Code.Length > 0 && i.Link.Length <= 0);
+        var distinctCode = missionHasCode.Select(i => i.Code).Distinct().ToList();
+        var distinctLink = missionHasLink.Select(i => i.Link).Distinct().ToList();
+        var finalCodeMission = missionHasCode.Where(i =>
+        {
+            var contains =  distinctCode.Contains(i.Code);
+            if (contains)
+            {
+                distinctCode.RemoveAll(j => i.Code == j);
+            }
+            return contains;
+        }).ToList();
+        var finalLinkMission = missionHasLink.Where(i =>
+        {
+            var contains =  distinctLink.Contains(i.Link);
+            if (contains)
+            {
+                distinctLink.RemoveAll(j => i.Link == j);
+            }
+            return contains;
+        }).ToList();
+        finalCodeMission.AddRange(finalLinkMission);
+        list = finalCodeMission;
         var blockList = new List<MissionConfigModel>();
         var blockListPath = ConfigPath.BLOCK_LSIT.Replace("date", DateTime.Now.ToString("yyyy-M-d"));
         if (!string.IsNullOrEmpty(blockListPath))
@@ -36,14 +60,13 @@ public class MissionLoader
                          Array.Empty<MissionConfigModel>())
                         .ToList();
                     blockList = blockList.Where(s =>
-                        Missions.AllMissionsKeywordSupported.Contains(s.Keyword)
+                        Missions.AllMissionsKeywordSupported.Keys.Contains(s.Keyword)
                     ).ToList();
                 }
                 catch(Exception e)
                 {
                     blockList = new();
                 }
-
             }
         }
         // 处理获取的任务列表并去除不做的任务
@@ -55,12 +78,12 @@ public class MissionLoader
                 continue;
             }
             // 如果这个任务关键词是匹配的
-            var keyword = Missions.AllMissionsKeywordSupported.Find(i => l.Name.ToLower().Contains(i));
+            var keyword = Missions.AllMissionsKeywordSupported.Keys.ToList().Find(i => l.Name.ToLower().Contains(i));
             if (keyword is null)
             {
                 continue;
             }
-            var missionConfig = missionList.Find(i => i.Keyword == keyword);
+            var missionConfig = supportedMissions.Find(i => i.Keyword == keyword);
             if (missionConfig is null)
             {
                 continue;
@@ -100,12 +123,12 @@ public class MissionLoader
     {
         if (backendModel.Code is not null && backendModel.Code.Length > 0)
         {
-            missionModel.PushCode(backendModel.Code);
+            missionModel.PushCode(backendModel.Code, backendModel.Domain);
             return missionModel;
         }
         if (backendModel.Link is not null && backendModel.Link.Length > 0)
         {
-            missionModel.PushLink(backendModel.Link);
+            missionModel.PushLink(backendModel.Link, backendModel.Domain);
             return missionModel;
         }
 

@@ -8,6 +8,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Models\Models.csproj" />
+      <ProjectReference Include="..\Crawler\Crawler.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ConfigHelper" />
     </ItemGroup>
 
 </Project>

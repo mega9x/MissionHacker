@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionHandler", "MissionHa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailProvider", "MailProvider\MailProvider.csproj", "{BDC1AF87-E48D-44D8-9591-879A2AA5B122}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{C43F3067-88BE-45F1-AC08-EEB2248816C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{BDC1AF87-E48D-44D8-9591-879A2AA5B122}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDC1AF87-E48D-44D8-9591-879A2AA5B122}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDC1AF87-E48D-44D8-9591-879A2AA5B122}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C43F3067-88BE-45F1-AC08-EEB2248816C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C43F3067-88BE-45F1-AC08-EEB2248816C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C43F3067-88BE-45F1-AC08-EEB2248816C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C43F3067-88BE-45F1-AC08-EEB2248816C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

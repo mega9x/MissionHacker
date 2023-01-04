@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "QXiWkD8haQLIZfFpr5uPvTOUcDgv+BuTRDLZBO+6dGNvIMhkNaZklyM/OEvA0a9TpeYd0NG6DIEirbtovte3XA==",
+  "dgSpecHash": "zpOY6w1SAz/gNzuKpHIERnqknkfKSGmM/c8fZIwB/aBS4oy1BQGU+cMKDjeosohfiyZ5Vr1eOwAMyUlXZayKTg==",
   "success": true,
   "projectFilePath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\MailProvider.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\YK\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512"
+  ],
   "logs": []
 }

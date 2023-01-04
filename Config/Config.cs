@@ -1,8 +1,6 @@
 ﻿using System.Text.Json;
 using Models;
 using Models.ConstStr;
-using Models.Enums;
-
 namespace MissionHacker.ConfigHelper;
 
 public class Config
@@ -47,11 +45,5 @@ public class Config
             File.WriteAllText(ConfigPath.CONFIG_GENERAL, str);
         }
         General = JsonSerializer.Deserialize<General>(File.ReadAllText(ConfigPath.CONFIG_GENERAL));
-        if (!File.Exists(ConfigPath.SUPPORT_LIST))
-        {
-            var str = JsonSerializer.Serialize(Missions.AllMissionsKeywordSupported);
-            File.Create(ConfigPath.SUPPORT_LIST).Close();
-            File.WriteAllText(ConfigPath.SUPPORT_LIST,str);
-        }
     }
 }

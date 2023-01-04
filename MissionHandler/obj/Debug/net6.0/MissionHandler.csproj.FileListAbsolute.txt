@@ -13,3 +13,10 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\obj\Deb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\obj\Debug\net6.0\refint\MissionHandler.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\obj\Debug\net6.0\MissionHandler.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\obj\Debug\net6.0\ref\MissionHandler.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Config.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Crawler.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Crawler.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Config.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
