@@ -74,6 +74,16 @@
           "lib/netstandard2.0/UserAgentGenerator.dll": {}
         }
       },
+      "BitBrowser/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BitBrowser.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BitBrowser.dll": {}
+        }
+      },
       "Config/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -232,6 +242,11 @@
         "useragentgenerator.nuspec"
       ]
     },
+    "BitBrowser/1.0.0": {
+      "type": "project",
+      "path": "../BitBrowser/BitBrowser.csproj",
+      "msbuildProject": "../BitBrowser/BitBrowser.csproj"
+    },
     "Config/1.0.0": {
       "type": "project",
       "path": "../Config/Config.csproj",
@@ -245,6 +260,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "BitBrowser >= 1.0.0",
       "Config >= 1.0.0",
       "Selenium.Support >= 4.7.0",
       "Selenium.UndetectedChromeDriver >= 1.0.7",
@@ -285,6 +301,9 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\BitBrowser.csproj": {
+              "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\BitBrowser.csproj"
+            },
             "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj": {
               "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj"
             }

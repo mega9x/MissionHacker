@@ -2,10 +2,12 @@
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
+using BitBrowser;
 using MissionHacker.ConfigHelper;
 using Models;
 using Models.BitBrowserApiModels;
 using Models.BitBrowserApiModels.Reponse;
+using Models.Data;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using SeleniumUndetectedChromeDriver;
@@ -18,7 +20,9 @@ public class Chrome: IBrowser
 {
     private string _remoteUri = "";
     public ChromeDriver Driver { get; private set; } = null;
-    public string proxy { get; set; } = Config.Instance.General!.Proxy;
+    public string Proxy { get; set; } = Config.Instance.General!.Proxy;
+    public IPData IPData { get; set; } = new();
+
     /// <summary>
     /// 切换 Ip. 参数是 国家简写
     /// </summary>
@@ -30,43 +34,51 @@ public class Chrome: IBrowser
         client.GetStringAsync(uri);
         return this;
     }
-
     public async Task<IWebDriver> GetDriver()
     {
-        if (Driver is null)
-        {
-            if (_remoteUri.Length <= 0)
-            {
-                await OpenBrowser();
-            }
-            var chromeOption = new ChromeOptions();
-            chromeOption.AddArgument("--incognito");
-            chromeOption.AddArgument("--private");
-            chromeOption.AddArgument("--lang=en");
-            chromeOption.DebuggerAddress = _remoteUri;
-            Driver = new ChromeDriver(".\\driver", chromeOption);
-            Driver.Manage().Window.Size = new Size(843, 680);
-            Driver.Manage().Cookies.DeleteAllCookies();
-        }
-        return this.Driver;
-    }
+        if (Driver is not null) return Driver;
 
-    private async Task OpenBrowser()
-    {
-        var httpClient = new HttpClient();
-        var browserPara = new OpenBrowser()
+        if (_remoteUri.Length <= 0)
         {
-            Id = Config.Instance.General!.BitBrowserId,
-        };
-        var data = new StringContent(JsonSerializer.Serialize(browserPara), Encoding.UTF8, "application/json");
-        var response = await httpClient.PostAsync(Config.Instance.General.BitApi + "/browser/open", data);
-        var resStr = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(resStr);
-        var resObj = JsonSerializer.Deserialize<ResponseBase<OpenBrowserResponse>>(resStr);
-        if (resObj is null)
-        {
-            throw new Exception("Failed to open browser");
+            var result = await Api.OpenBrowser(Config.Instance.General.BitBrowserId, Config.Instance.General.BitApi);
+            _remoteUri = result.Data.Http;
         }
-        _remoteUri = resObj.Data.Http;
+        var chromeOption = new ChromeOptions();
+        chromeOption.AddArgument("--incognito");
+        chromeOption.AddArgument("--private");
+        chromeOption.AddArgument("--lang=en");
+        chromeOption.DebuggerAddress = _remoteUri;
+        Driver = new(".\\driver", chromeOption);
+        Driver.Manage().Window.Size = new Size(843, 680);
+        Driver.Manage().Cookies.DeleteAllCookies();
+        Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
+        Driver.SwitchTo().NewWindow(WindowType.Tab);
+        Driver.Url = "https://ip-api.com/";
+        var output = Driver.FindElement(By.CssSelector("#codeOutput")).FindElements(By.CssSelector(".string"));
+        IPData.Region = output[6].Text;
+        IPData.RegionName = output[7].Text;
+        IPData.City = output[8].Text;
+        IPData.Timezone = output[11].Text;
+        IPData.CurrentZip = output[10].Text;
+        return Driver;
+    }
+    public IPData GetIPData()
+    {
+        return IPData;
+    }
+    public IBrowser SendKeysByCss(string css, string keys)
+    {
+        Driver.FindElement(By.CssSelector(css))
+            .SendKeys(keys);
+        return this;
+    }
+    public IBrowser ClickByCss(string css)
+    {
+        Driver.FindElement(By.CssSelector(css)).Click();
+        return this;
+    }
+    public IWebElement QuerySelector(string css)
+    {
+        return Driver.FindElement(By.CssSelector(css));
     }
 }

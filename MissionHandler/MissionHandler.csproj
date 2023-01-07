@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
@@ -13,6 +13,11 @@
 
     <ItemGroup>
       <Folder Include="ConfigHelper" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Chance.NET" Version="2.2.0" />
+      <PackageReference Include="Syllabore" Version="2.0.1" />
     </ItemGroup>
 
 </Project>

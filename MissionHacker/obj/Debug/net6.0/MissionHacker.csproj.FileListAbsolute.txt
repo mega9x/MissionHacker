@@ -30,3 +30,10 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debu
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\BitBrowser.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\MailProvider.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\MailProvider.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\BitBrowser.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Chance.NET.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Archigen.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Syllabore.dll

@@ -1,12 +1,15 @@
 ﻿using System.Text.Json;
 using Models;
 using Models.ConstStr;
+using Models.Data;
+
 namespace MissionHacker.ConfigHelper;
 
 public class Config
 {
     public General? General { get; private set; }
     public static Config Instance = new Lazy<Config>(() => new Config()).Value;
+    public List<USAddressModel> USAddressModels;
     private Config()
     {
         if (!Directory.Exists(ConfigPath.CONFIG_ROOT))
@@ -45,5 +48,16 @@ public class Config
             File.WriteAllText(ConfigPath.CONFIG_GENERAL, str);
         }
         General = JsonSerializer.Deserialize<General>(File.ReadAllText(ConfigPath.CONFIG_GENERAL));
+        USAddressModels = JsonSerializer.Deserialize<IEnumerable<USAddressModel>>(File.ReadAllText(ConfigPath.US_ADDRESS_DATA_PATH)).ToList();
+    }
+    public Config SaveBitBrowserConfig(string link, string id)
+    {
+        General.BitApi = link;
+        General.BitBrowserId = id;
+        File.Delete(ConfigPath.CONFIG_GENERAL);
+        var str = JsonSerializer.Serialize(General);
+        File.Create(ConfigPath.CONFIG_GENERAL).Close();
+        File.WriteAllText(ConfigPath.CONFIG_GENERAL, str);
+        return this;
     }
 }

@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Archigen/1.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Archigen.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Archigen.dll": {}
+        }
+      },
+      "Chance.NET/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/Chance.NET.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/Chance.NET.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "type": "package",
         "compile": {
@@ -65,6 +87,32 @@
           "build/_._": {}
         }
       },
+      "Syllabore/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Archigen": "1.2.0",
+          "System.Text.Json": "4.7.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Syllabore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syllabore.dll": {}
+        }
+      },
+      "System.Text.Json/4.7.2": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/System.Text.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "UserAgentGenerator/1.22.807.1109": {
         "type": "package",
         "compile": {
@@ -72,6 +120,16 @@
         },
         "runtime": {
           "lib/netstandard2.0/UserAgentGenerator.dll": {}
+        }
+      },
+      "BitBrowser/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/BitBrowser.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BitBrowser.dll": {}
         }
       },
       "Config/1.0.0": {
@@ -91,6 +149,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "BitBrowser": "1.0.0",
           "Config": "1.0.0",
           "Selenium.Support": "4.7.0",
           "Selenium.UndetectedChromeDriver": "1.0.7",
@@ -120,6 +179,42 @@
     }
   },
   "libraries": {
+    "Archigen/1.2.0": {
+      "sha512": "+OL5MICQWIpD16LMt5XAw73fLT8qktHVX0d21pedREKPS6Yi1O71kZuKQyyy6hVmzszI6rxZZ41Tkl6wlgXOdA==",
+      "type": "package",
+      "path": "archigen/1.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "archigen.1.2.0.nupkg.sha512",
+        "archigen.nuspec",
+        "lib/netstandard2.0/Archigen.dll"
+      ]
+    },
+    "Chance.NET/2.2.0": {
+      "sha512": "U2vM9/nKCfyE8aVI9w8iPfK1T22jf1pPF2az7Bmi/43APs7u16VLiGpG8o7WMvtX8nUgEhiVNWMdqeIT+RgWGQ==",
+      "type": "package",
+      "path": "chance.net/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "chance.net.2.2.0.nupkg.sha512",
+        "chance.net.nuspec",
+        "lib/net45/Chance.NET.dll",
+        "lib/net45/Chance.NET.xml",
+        "lib/net46/Chance.NET.dll",
+        "lib/net46/Chance.NET.xml",
+        "lib/net47/Chance.NET.dll",
+        "lib/net47/Chance.NET.xml",
+        "lib/netcoreapp2.0/Chance.NET.dll",
+        "lib/netcoreapp2.0/Chance.NET.xml",
+        "lib/netstandard1.6/Chance.NET.dll",
+        "lib/netstandard1.6/Chance.NET.xml",
+        "lib/netstandard2.0/Chance.NET.dll",
+        "lib/netstandard2.0/Chance.NET.xml"
+      ]
+    },
     "Newtonsoft.Json/13.0.1": {
       "sha512": "ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
       "type": "package",
@@ -237,6 +332,41 @@
         "selenium.webdriver.chromedriver.nuspec"
       ]
     },
+    "Syllabore/2.0.1": {
+      "sha512": "BSmye9iSUbZhzagJnmT43zoQGc/pS6hpOPJoefkamFOnj/yxUvO96ijvbADc09vjddXL7t26e51jys1D3hUamw==",
+      "type": "package",
+      "path": "syllabore/2.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "lib/netstandard2.0/Syllabore.dll",
+        "syllabore.2.0.1.nupkg.sha512",
+        "syllabore.nuspec"
+      ]
+    },
+    "System.Text.Json/4.7.2": {
+      "sha512": "TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
+      "type": "package",
+      "path": "system.text.json/4.7.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Text.Json.dll",
+        "lib/net461/System.Text.Json.xml",
+        "lib/netcoreapp3.0/System.Text.Json.dll",
+        "lib/netcoreapp3.0/System.Text.Json.xml",
+        "lib/netstandard2.0/System.Text.Json.dll",
+        "lib/netstandard2.0/System.Text.Json.xml",
+        "system.text.json.4.7.2.nupkg.sha512",
+        "system.text.json.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "UserAgentGenerator/1.22.807.1109": {
       "sha512": "gSp6LppMmd9mM3QT6XnATN+uS0Dr5tXZ+/VXHf3bZJM23RWGgH5seqJsbM5Gt0VB1ke4LVZfvJTeMJCjYj1/7A==",
       "type": "package",
@@ -248,6 +378,11 @@
         "useragentgenerator.1.22.807.1109.nupkg.sha512",
         "useragentgenerator.nuspec"
       ]
+    },
+    "BitBrowser/1.0.0": {
+      "type": "project",
+      "path": "../BitBrowser/BitBrowser.csproj",
+      "msbuildProject": "../BitBrowser/BitBrowser.csproj"
     },
     "Config/1.0.0": {
       "type": "project",
@@ -267,8 +402,10 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Chance.NET >= 2.2.0",
       "Crawler >= 1.0.0",
-      "Models >= 1.0.0"
+      "Models >= 1.0.0",
+      "Syllabore >= 2.0.1"
     ]
   },
   "packageFolders": {
@@ -322,6 +459,16 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "Chance.NET": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
+          "Syllabore": {
+            "target": "Package",
+            "version": "[2.0.1, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",

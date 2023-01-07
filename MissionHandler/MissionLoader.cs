@@ -43,7 +43,7 @@ public class MissionLoader
         }).ToList();
         finalCodeMission.AddRange(finalLinkMission);
         list = finalCodeMission;
-        var blockList = new List<MissionConfigModel>();
+        var blockList = new List<string>();
         var blockListPath = ConfigPath.BLOCK_LSIT.Replace("date", DateTime.Now.ToString("yyyy-M-d"));
         if (!string.IsNullOrEmpty(blockListPath))
         {
@@ -55,12 +55,9 @@ public class MissionLoader
             {
                 try
                 {
-                    blockList =
-                        (JsonSerializer.Deserialize<IEnumerable<MissionConfigModel>>(File.ReadAllText(blockListPath)) ??
-                         Array.Empty<MissionConfigModel>())
-                        .ToList();
-                    blockList = blockList.Where(s =>
-                        Missions.AllMissionsKeywordSupported.Keys.Contains(s.Keyword)
+                    blockList = File.ReadAllLines(blockListPath).ToList();
+                        blockList = blockList.Where(s =>
+                        Missions.AllMissionsKeywordSupported.Keys.Contains(s)
                     ).ToList();
                 }
                 catch(Exception e)
@@ -73,7 +70,7 @@ public class MissionLoader
         foreach (var l in list)
         {
             // 如果黑名单
-            if (blockList.Find(i => l.Name.ToLower().Contains(i.Keyword)) is not null)
+            if (blockList.Find(i => l.Name.ToLower().Contains(i)) is not null)
             {
                 continue;
             }
@@ -97,7 +94,7 @@ public class MissionLoader
                     Keyword = keyword,
                     Area = missionConfig.Area,
                     Platform = l.Platform,
-                    Times = RandomNumberGenerator.GetInt32(missionConfig.MinTimes, missionConfig.MaxTimes + 1),
+                    MaxTimes = RandomNumberGenerator.GetInt32(missionConfig.MinTimes, missionConfig.MaxTimes + 1),
                 };
                 var mis = PushMissionModel(missionModel, l);
                 if (mis is null)
@@ -116,22 +113,24 @@ public class MissionLoader
                 var index = MissionList.FindIndex(m => m.Keyword == keyword);
                 MissionList[index] = mis;
             }
+            MissionList.Sort((left, right) =>
+                string.Compare(right.Area, left.Area, StringComparison.Ordinal)
+            );
         }
     }
     
     private MissionModel? PushMissionModel(MissionModel missionModel, BackendModel backendModel)
     {
-        if (backendModel.Code is not null && backendModel.Code.Length > 0)
-        {
-            missionModel.PushCode(backendModel.Code, backendModel.Domain);
-            return missionModel;
-        }
         if (backendModel.Link is not null && backendModel.Link.Length > 0)
         {
-            missionModel.PushLink(backendModel.Link, backendModel.Domain);
+            missionModel.PushCode(backendModel.Link, backendModel.Domain.Trim());
             return missionModel;
         }
-
+        if (backendModel.Code is not null && backendModel.Code.Length > 0)
+        {
+            missionModel.PushCode(backendModel.Code, backendModel.Domain.Trim());
+            return missionModel;
+        }
         return null;
     }
 }

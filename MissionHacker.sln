@@ -1,16 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionHacker", "MissionHacker\MissionHacker.csproj", "{6E711123-49EA-481B-9F4A-F2C2F177D63B}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionHacker", "MissionHacker\MissionHacker.csproj", "{6E711123-49EA-481B-9F4A-F2C2F177D63B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{FCE53072-623B-4562-AC69-4FEF3D815A86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{FCE53072-623B-4562-AC69-4FEF3D815A86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawler", "Crawler\Crawler.csproj", "{567660D9-DBD1-41AB-90DE-8ED1BDA7283E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Crawler", "Crawler\Crawler.csproj", "{567660D9-DBD1-41AB-90DE-8ED1BDA7283E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MissionHandler", "MissionHandler\MissionHandler.csproj", "{CB31EDC4-422D-4A9B-8B42-D104F78BCA45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MissionHandler", "MissionHandler\MissionHandler.csproj", "{CB31EDC4-422D-4A9B-8B42-D104F78BCA45}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailProvider", "MailProvider\MailProvider.csproj", "{BDC1AF87-E48D-44D8-9591-879A2AA5B122}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailProvider", "MailProvider\MailProvider.csproj", "{BDC1AF87-E48D-44D8-9591-879A2AA5B122}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Config", "Config\Config.csproj", "{C43F3067-88BE-45F1-AC08-EEB2248816C7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Config", "Config\Config.csproj", "{C43F3067-88BE-45F1-AC08-EEB2248816C7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitBrowser", "BitBrowser\BitBrowser.csproj", "{19129B92-914C-4D81-97E9-C2A5711ADD32}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,5 +49,19 @@ Global
 		{C43F3067-88BE-45F1-AC08-EEB2248816C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C43F3067-88BE-45F1-AC08-EEB2248816C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C43F3067-88BE-45F1-AC08-EEB2248816C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19129B92-914C-4D81-97E9-C2A5711ADD32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19129B92-914C-4D81-97E9-C2A5711ADD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19129B92-914C-4D81-97E9-C2A5711ADD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19129B92-914C-4D81-97E9-C2A5711ADD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {156AE1B4-4CA8-45BF-AEF4-BD21866DD30A}
 	EndGlobalSection
 EndGlobal

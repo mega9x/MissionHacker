@@ -8,11 +8,28 @@
     ".NETCoreApp,Version=v6.0": {
       "MissionHacker/1.0.0": {
         "dependencies": {
+          "MailProvider": "1.0.0",
           "MissionHandler": "1.0.0",
           "Models": "1.0.0"
         },
         "runtime": {
           "MissionHacker.dll": {}
+        }
+      },
+      "Archigen/1.2.0": {
+        "runtime": {
+          "lib/netstandard2.0/Archigen.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
+        }
+      },
+      "Chance.NET/2.2.0": {
+        "runtime": {
+          "lib/netcoreapp2.0/Chance.NET.dll": {
+            "assemblyVersion": "2.2.0.0",
+            "fileVersion": "2.2.0.0"
+          }
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -58,12 +75,30 @@
         }
       },
       "Selenium.WebDriver.ChromeDriver/104.0.5112.7900": {},
+      "Syllabore/2.0.1": {
+        "dependencies": {
+          "Archigen": "1.2.0",
+          "System.Text.Json": "4.7.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Syllabore.dll": {
+            "assemblyVersion": "2.0.1.0",
+            "fileVersion": "2.0.1.0"
+          }
+        }
+      },
+      "System.Text.Json/4.7.2": {},
       "UserAgentGenerator/1.22.807.1109": {
         "runtime": {
           "lib/netstandard2.0/UserAgentGenerator.dll": {
             "assemblyVersion": "1.22.807.1109",
             "fileVersion": "1.22.807.1109"
           }
+        }
+      },
+      "BitBrowser/1.0.0": {
+        "runtime": {
+          "BitBrowser.dll": {}
         }
       },
       "Config/1.0.0": {
@@ -76,6 +111,7 @@
       },
       "Crawler/1.0.0": {
         "dependencies": {
+          "BitBrowser": "1.0.0",
           "Config": "1.0.0",
           "Selenium.Support": "4.7.0",
           "Selenium.UndetectedChromeDriver": "1.0.7",
@@ -86,10 +122,20 @@
           "Crawler.dll": {}
         }
       },
+      "MailProvider/1.0.0": {
+        "dependencies": {
+          "Models": "1.0.0"
+        },
+        "runtime": {
+          "MailProvider.dll": {}
+        }
+      },
       "MissionHandler/1.0.0": {
         "dependencies": {
+          "Chance.NET": "2.2.0",
           "Crawler": "1.0.0",
-          "Models": "1.0.0"
+          "Models": "1.0.0",
+          "Syllabore": "2.0.1"
         },
         "runtime": {
           "MissionHandler.dll": {}
@@ -110,6 +156,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Archigen/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-+OL5MICQWIpD16LMt5XAw73fLT8qktHVX0d21pedREKPS6Yi1O71kZuKQyyy6hVmzszI6rxZZ41Tkl6wlgXOdA==",
+      "path": "archigen/1.2.0",
+      "hashPath": "archigen.1.2.0.nupkg.sha512"
+    },
+    "Chance.NET/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-U2vM9/nKCfyE8aVI9w8iPfK1T22jf1pPF2az7Bmi/43APs7u16VLiGpG8o7WMvtX8nUgEhiVNWMdqeIT+RgWGQ==",
+      "path": "chance.net/2.2.0",
+      "hashPath": "chance.net.2.2.0.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
@@ -146,6 +206,20 @@
       "path": "selenium.webdriver.chromedriver/104.0.5112.7900",
       "hashPath": "selenium.webdriver.chromedriver.104.0.5112.7900.nupkg.sha512"
     },
+    "Syllabore/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BSmye9iSUbZhzagJnmT43zoQGc/pS6hpOPJoefkamFOnj/yxUvO96ijvbADc09vjddXL7t26e51jys1D3hUamw==",
+      "path": "syllabore/2.0.1",
+      "hashPath": "syllabore.2.0.1.nupkg.sha512"
+    },
+    "System.Text.Json/4.7.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
+      "path": "system.text.json/4.7.2",
+      "hashPath": "system.text.json.4.7.2.nupkg.sha512"
+    },
     "UserAgentGenerator/1.22.807.1109": {
       "type": "package",
       "serviceable": true,
@@ -153,12 +227,22 @@
       "path": "useragentgenerator/1.22.807.1109",
       "hashPath": "useragentgenerator.1.22.807.1109.nupkg.sha512"
     },
+    "BitBrowser/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Config/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
     },
     "Crawler/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MailProvider/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

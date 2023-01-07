@@ -4,30 +4,31 @@ namespace MailProvider;
 
 public class MailProvider
 {
-    private List<string> AllMail { get; set; }
+    public static MailProvider Instance = new Lazy<MailProvider>(() => new MailProvider()).Value;
+    private List<string> AllMail { get; set; } = new();
     private int index = 0;
-    public MailProvider()
+    public async Task<string> GetMail()
     {
-        AllMail = File.ReadAllLines(ConfigPath.MAIL_POOL).ToList();
-    }
-    public string GetMail()
-    {
-        var str = "";
-        while (true)
+        if (AllMail.Count <= 0)
         {
-            index++;
-            if (index >= AllMail.Count)
-            {
-                break;
-            }
-            str = AllMail[index--];
-            if (File.ReadAllLines(ConfigPath.CONFIG_MAIL_USED).Contains(str))
-            {
-                continue;
-            }
-            File.AppendAllText(ConfigPath.CONFIG_MAIL_USED,  $"{AllMail[index]}{Environment.NewLine}");
-            break;
+            var mAllLinesAsync = await File.ReadAllLinesAsync(ConfigPath.MAIL_POOL);
+            AllMail = mAllLinesAsync.ToList();
         }
+        var str = AllMail[index];
+        index++;
         return str;
+    }
+    public MailProvider Record(string keyword)
+    {
+        var str = $"{AllMail[index]} | {keyword}";
+        str = $"{str} | {keyword}";
+        File.WriteAllText(ConfigPath.CONFIG_MAIL_USED, str);
+        return this;
+    }
+    public bool IsMailUsed(string keyword)
+    {
+        var used = File.ReadAllLines(ConfigPath.CONFIG_MAIL_USED);
+        var str = $"{AllMail[index]} | {keyword}";
+        return used.Contains(str);
     }
 }

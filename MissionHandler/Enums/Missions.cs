@@ -6,7 +6,7 @@ public static class Missions
 {
     public static readonly Dictionary<string, IMissionHandler> AllMissionsKeywordSupported = new()
     {
-        // "elitesingles",
+        {"elitesingles", new Elitesingles()},
         {"flirt-dating", new FlirtDating()},
         // "seniorsexmatch",
         // "hookups - soi", 
