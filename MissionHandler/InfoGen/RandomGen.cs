@@ -123,6 +123,17 @@ namespace OutlookHacker.Main.MailName
             var result = _stringBuilder.ToString();
             return result.Replace(" ", "");
         }
+        public string GetRandomNameWithoutEnding()
+        {
+            _stringBuilder.Clear();
+            var index = RandomNumberGenerator.GetInt32(1, 2);
+            for (var i = 0; i <= index; i++)
+            {
+                actions[RandomNumberGenerator.GetInt32(0, actions.Count)]();
+            }
+            var result = _stringBuilder.ToString();
+            return result.Replace(" ", "");
+        }
         public string GetPassword()
         {
             var chance = new Chance();
@@ -138,7 +149,6 @@ namespace OutlookHacker.Main.MailName
             var chance = new Chance();
             return chance.LastName();
         }
-        
         private RandomGen Append<T>(T str)
         {
             _stringBuilder.Append(str);

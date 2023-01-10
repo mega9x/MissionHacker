@@ -1,0 +1,637 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\GUI\\GUI.csproj": {}
+  },
+  "projects": {
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\BitBrowser.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\BitBrowser.csproj",
+        "projectName": "BitBrowser",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\BitBrowser.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj",
+        "projectName": "Config",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\Crawler.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\Crawler.csproj",
+        "projectName": "Crawler",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\Crawler.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\BitBrowser.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\BitBrowser\\BitBrowser.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AsyncChromeDriver": {
+              "target": "Package",
+              "version": "[0.5.8, )"
+            },
+            "Selenium.Support": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            },
+            "Selenium.UndetectedChromeDriver": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
+            "Selenium.WebDriver.ChromeDriver": {
+              "target": "Package",
+              "version": "[104.0.5112.7900, )"
+            },
+            "UserAgentGenerator": {
+              "target": "Package",
+              "version": "[1.22.807.1109, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj",
+        "projectName": "Events",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\GUI\\GUI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\GUI\\GUI.csproj",
+        "projectName": "GUI",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\GUI\\GUI.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\GUI\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0-windows7.0": {
+            "targetAlias": "net6.0-windows",
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Config\\Config.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHacker\\MissionHacker.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHacker\\MissionHacker.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0-windows7.0": {
+          "targetAlias": "net6.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\MailProvider.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\MailProvider.csproj",
+        "projectName": "MailProvider",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\MailProvider.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHacker\\MissionHacker.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHacker\\MissionHacker.csproj",
+        "projectName": "MissionHacker",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHacker\\MissionHacker.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHacker\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\MailProvider.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\MailProvider.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\MissionHandler.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\MissionHandler.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\MissionHandler.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\MissionHandler.csproj",
+        "projectName": "MissionHandler",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\MissionHandler.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHandler\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\Crawler.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\Crawler.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj"
+              },
+              "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj": {
+                "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Chance.NET": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Syllabore": {
+              "target": "Package",
+              "version": "[2.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj",
+        "projectName": "Models",
+        "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\Models.csproj",
+        "packagesPath": "C:\\Users\\YK\\.nuget\\packages\\",
+        "outputPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\YK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Selenium.WebDriver": {
+              "target": "Package",
+              "version": "[4.7.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

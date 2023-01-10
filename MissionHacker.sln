@@ -19,6 +19,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BitBrowser", "BitBrowser\Bi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csproj", "{6D024058-88A7-4608-8F18-3D41097ACB46}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1F0323B5-0382-4DF3-B11D-D32DE808DD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D024058-88A7-4608-8F18-3D41097ACB46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D024058-88A7-4608-8F18-3D41097ACB46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D024058-88A7-4608-8F18-3D41097ACB46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D024058-88A7-4608-8F18-3D41097ACB46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

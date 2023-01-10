@@ -78,7 +78,7 @@ public class FlirtDating : AbstractMissionHandler
         allInput[2].SendKeys(info.Mail.MailPd);
         await Awaiter.GetDelay();
         MainDriver.FindElement(By.CssSelector(".submit-btn")).Click();
-        MailChrome.ClickLatestOther("Flirt");
+        await (await MailChrome.ClickOther()).ClickMailFromCurrent("Flirt");
         await Task.Delay(800);
         var href = MailDriver.FindElement(By.CssSelector("#ReadingPaneContainerId > div > div > div > div.L72vd > div > div:nth-child(2) > div.aVla3 > div > div > div > div > div.XbIp4.jmmB7.GNqVo.yxtKT.allowTextSelection > div > div > div > table > tbody > tr:nth-child(3) > td > center > table > tbody > tr:nth-child(4) > td > table > tbody > tr:nth-child(4) > td:nth-child(2) > a"))
             .GetAttribute("href");

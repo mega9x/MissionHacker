@@ -14,7 +14,11 @@ public class AbstractMissionHandler : IMissionHandler
     internal IWebDriver MailDriver { get; set; }
     public virtual IMissionHandler Init()
     {
-        MainDriver.Navigate().GoToUrl(info.Links.Domain);
+        if (!info.Links.Domain.StartsWith("http"))
+        {
+            info.Links.Domain = $"https://{info.Links.Domain}";
+        }
+        MainDriver.Url = info.Links.Domain;
         MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());
         MainDriver.ExecuteJavaScript($"window.open('{info.Links.Link}')");
         MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());

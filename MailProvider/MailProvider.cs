@@ -7,6 +7,7 @@ public class MailProvider
     public static MailProvider Instance = new Lazy<MailProvider>(() => new MailProvider()).Value;
     private List<string> AllMail { get; set; } = new();
     private int index = 0;
+    public string CurrentMail => AllMail[index];
     public async Task<string> GetMail()
     {
         if (AllMail.Count <= 0)

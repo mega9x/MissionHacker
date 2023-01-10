@@ -73,7 +73,7 @@ try
             l.NextCode();
         }
         mainBrowser.ChangeIp("US");
-        mainBrowser.Driver.Quit();
+        (await mainBrowser.GetDriver()).Quit();
         if (allHandled)
         {
             break;
