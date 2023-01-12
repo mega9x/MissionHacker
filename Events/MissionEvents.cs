@@ -30,6 +30,17 @@ public static class MissionEvents
         MissionDoneEvent(num);
     }
 
+    public static void ThrowException(object sender, Exception e, string simpleMessage)
+    {
+        ThrowExceptionEvent(sender, new()
+        {
+            Exception = e,
+            FullMessage = e.ToString(),
+            SimpleMessage = simpleMessage,
+        });
+    }
+    
+    
     public static void ThrowException(object sender, ThrowEventArgs args)
     {
         ThrowExceptionEvent(sender, args);

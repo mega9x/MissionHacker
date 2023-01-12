@@ -79,4 +79,20 @@ public interface IBrowser
     /// </summary>
     /// <param name="keys"></param>
     public IBrowser Clear();
+    /// <summary>
+    /// 持续等待到元素无法获取为止.
+    /// </summary>
+    /// <param name="css"></param>
+    /// <param name="timeout"></param>
+    public Task<IBrowser> WaitUntilNull(string css, int timeout);
+    /// <summary>
+    /// 让浏览器滚
+    /// </summary>
+    /// <returns></returns>
+    public Task Quit();
+    /// <summary>
+    /// 刷新 Ip 信息
+    /// </summary>
+    /// <returns></returns>
+    public Task<IBrowser> RefreshIpData();
 }

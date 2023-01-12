@@ -1,19 +1,13 @@
 ﻿using MissionHacker.ConfigHelper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Events;
 
 namespace GUI
@@ -24,6 +18,9 @@ namespace GUI
     public partial class MainWindow : Window
     {
         private Thread _browserThread;
+        private MissionHacker.MissionHacker _hacker = new MissionHacker.MissionHacker();
+        public event PropertyChangedEventHandler PropertyChanged;
+        private List<string> Error { get; set; } = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +28,15 @@ namespace GUI
             ApiLinkInput.Text = config.General.BitApi;
             WindowIDInput.Text = config.General.BitBrowserId;
             MissionEvents.ThrowExceptionEvent += (sender, args) => {
-                Debug.Text += $"{args.SimpleMessage}{Environment.NewLine}{args.FullMessage}{Environment.NewLine}";
+                var sb = new StringBuilder();
+                Error.Add($"{args.SimpleMessage}{Environment.NewLine}{args.FullMessage}{Environment.NewLine}");
+                var revered = Error;
+                revered.Reverse();
+                foreach (var s in revered)
+                {
+                    sb.Append(s);
+                }
+                Debug.Text = sb.ToString();
             };
             MissionEvents.MissionDoneEvent += (i) => ProgressBar.Value = i;
             MissionEvents.MissionLoadedEvent += (i, e) => ProgressBar.Maximum = e.Max;
@@ -43,25 +48,21 @@ namespace GUI
         private async void Run_Click(object sender, RoutedEventArgs e)
         {
             Run.IsEnabled = false;
+            _hacker.CanChangeIp = ChangeIpChecked.IsChecked ?? false;
             await RunAsync();
             Run.IsEnabled = true;
         }
         private async Task RunAsync()
         {
-            var hacker = new MissionHacker.MissionHacker();
-            await hacker.LoadMission();
+           // var hacker = new MissionHacker.MissionHacker();
+            await _hacker.LoadMission();
             try
             {
-                await hacker.Run();
+                await _hacker.Run();
             }
             catch (Exception exception)
             {
-                MissionEvents.ThrowException(this, new()
-                {
-                    Exception = exception,
-                    FullMessage = exception.ToString(),
-                    SimpleMessage = exception.Message,
-                });
+                MissionEvents.ThrowException(this, exception, "此任务运行失败");
             }
         }
     }

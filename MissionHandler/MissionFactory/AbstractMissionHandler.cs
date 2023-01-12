@@ -27,7 +27,7 @@ public class AbstractMissionHandler : IMissionHandler
     public async Task<IMissionHandler> SetMailBrowser(MailChrome browser)
     {
         MailChrome = browser;
-        MailDriver = await browser.GetDriver(info.Mail);
+        MailDriver = await browser.GetDriver();
         return this;
     }
     public async Task<IMissionHandler> SetBrowser(IBrowser browser)

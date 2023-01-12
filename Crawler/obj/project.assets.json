@@ -1223,6 +1223,16 @@
         "runtime": {
           "bin/placeholder/Models.dll": {}
         }
+      },
+      "Utils/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Utils.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Utils.dll": {}
+        }
       }
     }
   },
@@ -4019,6 +4029,11 @@
       "type": "project",
       "path": "../Models/Models.csproj",
       "msbuildProject": "../Models/Models.csproj"
+    },
+    "Utils/1.0.0": {
+      "type": "project",
+      "path": "../Utils/Utils.csproj",
+      "msbuildProject": "../Utils/Utils.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -4030,7 +4045,8 @@
       "Selenium.Support >= 4.7.0",
       "Selenium.UndetectedChromeDriver >= 1.0.7",
       "Selenium.WebDriver.ChromeDriver >= 104.0.5112.7900",
-      "UserAgentGenerator >= 1.22.807.1109"
+      "UserAgentGenerator >= 1.22.807.1109",
+      "Utils >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -4074,6 +4090,9 @@
             },
             "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj": {
               "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Events\\Events.csproj"
+            },
+            "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Utils\\Utils.csproj": {
+              "projectPath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Utils\\Utils.csproj"
             }
           }
         }

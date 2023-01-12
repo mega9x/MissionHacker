@@ -21,15 +21,14 @@ public class MailProvider
     }
     public MailProvider Record(string keyword)
     {
-        var str = $"{AllMail[index]} | {keyword}";
-        str = $"{str} | {keyword}";
-        File.WriteAllText(ConfigPath.CONFIG_MAIL_USED, str);
+        var str = $"{AllMail[index - 1]} | {keyword}{Environment.NewLine}";
+        File.AppendAllText(ConfigPath.CONFIG_MAIL_USED, str);
         return this;
     }
     public bool IsMailUsed(string keyword)
     {
         var used = File.ReadAllLines(ConfigPath.CONFIG_MAIL_USED);
-        var str = $"{AllMail[index]} | {keyword}";
+        var str = $"{AllMail[index - 1]} | {keyword}";
         return used.Contains(str);
     }
 }

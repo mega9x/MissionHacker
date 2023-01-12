@@ -24,3 +24,5 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Deb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\BitBrowser.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Events.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Events.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Utils.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\Utils.pdb

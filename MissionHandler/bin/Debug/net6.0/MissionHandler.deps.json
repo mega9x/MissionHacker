@@ -702,7 +702,8 @@
           "Selenium.Support": "4.7.0",
           "Selenium.UndetectedChromeDriver": "1.0.7",
           "Selenium.WebDriver.ChromeDriver": "104.0.5112.7900",
-          "UserAgentGenerator": "1.22.807.1109"
+          "UserAgentGenerator": "1.22.807.1109",
+          "Utils": "1.0.0"
         },
         "runtime": {
           "Crawler.dll": {}
@@ -719,6 +720,11 @@
         },
         "runtime": {
           "Models.dll": {}
+        }
+      },
+      "Utils/1.0.0": {
+        "runtime": {
+          "Utils.dll": {}
         }
       }
     }
@@ -1282,6 +1288,11 @@
       "sha512": ""
     },
     "Models/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Utils/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

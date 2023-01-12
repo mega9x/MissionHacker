@@ -8,12 +8,14 @@
         Title="MainWindow" Height="430" Width="425" MaxHeight="430" MaxWidth="425" MinHeight="430" MinWidth="425">
     <Grid>
         <Label Content="比特浏览器 Api 链接" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="每轮自动更换 IP" HorizontalAlignment="Left" Margin="152,79,0,0" VerticalAlignment="Top"/>
         <Label Content="比特浏览器窗口 Id" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
         <Button Content="应用" HorizontalAlignment="Left" Margin="15,65,0,0" VerticalAlignment="Top" Height="27" Width="55" Name="Apply" Click="Apply_Click"/>
         <Button Content="启动" HorizontalAlignment="Left" Margin="80,65,0,0" VerticalAlignment="Top" Height="27" Width="55" Name="Run" Click="Run_Click"/>
+        <CheckBox Name="ChangeIpChecked" Margin="138,85,0,0" IsChecked="True"></CheckBox>
         <TextBox Name="ApiLinkInput" HorizontalAlignment="Left" Margin="134,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="255"/>
         <TextBox Name="WindowIDInput" HorizontalAlignment="Left" Margin="134,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="255"/>
         <TextBox Name="Debug" HorizontalAlignment="Left" Margin="20,105,0,0" TextWrapping="Wrap" Text="DebugInfo" VerticalAlignment="Top" Width="370" Height="265"/>
-        <ProgressBar Name="ProgressBar"  HorizontalAlignment="Left" Height="15" Margin="140,70,0,0" VerticalAlignment="Top" Width="248"/>
+        <ProgressBar Name="ProgressBar"  HorizontalAlignment="Left" Height="15" Margin="140,65,0,0" VerticalAlignment="Top" Width="248"/>
     </Grid>
 </Window>

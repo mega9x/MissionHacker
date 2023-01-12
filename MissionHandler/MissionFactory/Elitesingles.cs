@@ -41,6 +41,8 @@ public class Elitesingles : AbstractMissionHandler
     }
     public override async Task<IMissionHandler> RunAsync()
     {
+        MailChrome.Mail = info.Mail;
+        await MailChrome.Login();
         tall = sex == 0 ? RandomNumberGenerator.GetInt32(169, 190) : RandomNumberGenerator.GetInt32(150, 180);
         var random = new RandomGen();
         var nickname = random.GetRandomNameWithoutEnding();
@@ -90,10 +92,15 @@ public class Elitesingles : AbstractMissionHandler
         await Wait(1000);
         MainDriver.FindElement(By.CssSelector("#passwordRepeat")).SendKeys(password);
         Browser.ClickByCss("#submit-btn");
+        MainDriver.SwitchTo().Frame(Browser.QuerySelector("#h-captcha-wrapper > iframe").End().Queryed);
+        Browser.ClickByCss("#anchor-state");
+        MainDriver.SwitchTo().ParentFrame();
+        await Wait(1000);
         await Wait();
         Browser.ClickByCss(
             "#psytest > div > div > main > div > div.section.single.candy-screen > div > footer > button.btn.btn-primary.continue");
         await Wait();
+        await Wait(1200);
         Browser.ClickByJsCss(genderSelectorTwo);
         await Wait();
         await Wait(1200);
@@ -162,22 +169,16 @@ public class Elitesingles : AbstractMissionHandler
             "#react-select-5-input",
             random.GetRandomProfession());
         ClickBigGreenNextBtn();
-        await Wait();
-        await Wait(1200);
-        await AutoSelect();
-        await Wait();
-        await Wait(1200);
-        await AutoSelect();
-        await Wait();
-        await Wait(1200);
-        MainDriver.FindElements(
-                By.CssSelector(
-                    "#psytest > div > div > main > div > div.section.single > div > div > div > div > div"))
-            [RandomNumberGenerator.GetInt32(0, 11)].Click();
-        await Wait();
-        await Wait(1200);
-        Browser.ClickByCss(
-            "#psytest > div > div > main > div > div.section.candy-screen.single > div > footer > button.btn.btn-primary.continue");
+        while (true)
+        {
+            await Wait();
+            await Wait(1200);
+            var result = await AutoSelect();
+            if (!result)
+            {
+                break;
+            }
+        }
         await Wait();
         await Wait(1200);
         Browser.ClickByCss(
@@ -193,12 +194,25 @@ public class Elitesingles : AbstractMissionHandler
         Browser.ClickByCss(
             "body > div:nth-child(2) > main > div > div > section.subheader > div > div.back.hide-for-small > a");
         MainDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
-        await (await MailChrome.ClickOther()).ClickMailFromCurrent("EliteSingles Confirm your email address to complete");
+        await MailChrome.ClickMail("EliteSingles Confirm your email address to complete");
+        try
+        {
+
+            var herf = await MailChrome.GetHrefByKeyword("Confirm my email address >>");
+            MainDriver.SwitchTo().NewWindow(WindowType.Tab);
+            MainDriver.Navigate().GoToUrl(herf);
+        }
+        catch(Exception e)
+        {
+            MissionEvents.ThrowException(this, e, "无法进行邮箱验证");
+        }
+
         // MailChrome.ClickLatestFocused()
         return this;
     }
     private async Task<bool> AutoSelect()
     {
+        await Browser.WaitUntilNull("#psytest > div > div > main > div.saving-spinner > div > svg", 300);
         var clicked = true;
         var timespan = Browser.Timeout;
         while(clicked)
@@ -356,6 +370,36 @@ public class Elitesingles : AbstractMissionHandler
         }
         var times = RandomNumberGenerator.GetInt32(minTimes, selectors.Count);
         List<IWebElement> list = new();
+        try
+        {
+            var timeout = Browser.Timeout;
+            Browser.Timeout = TimeSpan.FromSeconds(3);
+            var selectedIndex = RandomNumberGenerator.GetInt32(0, 3);
+            var selected = MainDriver.FindElement(By.CssSelector("#psytest > div > div > main > div > div.section.single > div > div > header > h4 > span"));
+            if (!selected.Text.ToLower().Contains("how did you hear about us") || RandomNumberGenerator.GetInt32(0, 101) < 80) throw new Exception();
+            var google = selectors.First(x => x.Text.ToLower().Contains("google"));
+            var facebook = selectors.First(x => x.Text.ToLower().Contains("facebook"));
+            var youtube = selectors.First(x => x.Text.ToLower().Contains("youtube"));
+            Browser.Timeout = timeout;
+            switch (selectedIndex)
+            {
+                case 1:
+                    list.Add(facebook);
+                    facebook.Click();
+                    return list;
+                case 0:
+                    list.Add(google);
+                    google.Click();
+                    return list;
+                case 2:
+                    list.Add(youtube);
+                    youtube.Click();
+                    return list;
+            }
+        }
+        catch (Exception e)
+        {
+        }
         var before = 0;
         for (int i = 0; i < times; i++)
         {

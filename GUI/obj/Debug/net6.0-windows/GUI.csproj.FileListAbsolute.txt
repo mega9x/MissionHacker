@@ -56,3 +56,5 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-w
 E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\SuperSocket.ClientEngine.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\WebSocket4Net.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\ChromeDevToolsClient.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\Utils.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\Utils.pdb

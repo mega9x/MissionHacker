@@ -6,13 +6,13 @@ using MissionHacker.ConfigHelper;
 using Models.Data;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Internal;
 
 namespace Crawler;
 
 public class Chrome: AbstractBrowser
 {
     private string _remoteUri = "";
-
     /// <summary>
     /// 切换 Ip. 参数是 国家简写
     /// </summary>
@@ -32,25 +32,10 @@ public class Chrome: AbstractBrowser
             var result = await Api.OpenBrowser(Config.Instance.General.BitBrowserId, Config.Instance.General.BitApi);
             _remoteUri = result.Data.Http;
         }
-        var chromeOption = new ChromeOptions();
-        chromeOption.AddArgument("--incognito");
-        chromeOption.AddArgument("--private");
-        chromeOption.AddArgument("--lang=en");
-        chromeOption.DebuggerAddress = _remoteUri;
-        var defaultService = ChromeDriverService.CreateDefaultService(".\\driver");
-        defaultService.HideCommandPromptWindow = true;
-        Driver = new(defaultService, chromeOption);
+        RemoteUri = _remoteUri;
+        InitChrome();
         Driver.Manage().Window.Size = new Size(843 + RandomNumberGenerator.GetInt32(0, 401), 600 + RandomNumberGenerator.GetInt32(0, 201));
-        Driver.Manage().Cookies.DeleteAllCookies();
-        Timeout = TimeSpan.FromSeconds(120);
-        Driver.SwitchTo().NewWindow(WindowType.Tab);
-        Driver.Url = "http://ip-api.com/json";
-        var output = Driver.FindElement(By.CssSelector("body > pre")).Text;
-        IPData = JsonSerializer.Deserialize<IPData>(output);
+        RefreshIpData();
         return Driver;
-    }
-    public override IPData GetIPData()
-    {
-        return IPData;
     }
 }

@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Events;
 using Events.EventArgs;
 using Models.ConstStr;
+using UserAgentGenerator;
 
 namespace MissionHacker
 {
@@ -21,7 +22,11 @@ namespace MissionHacker
     public class MissionHacker
     {
         private int _progressBarNum = 0;
+        private MailChrome _mailBrowser;
+        private readonly IBrowser _mainBrowser = new Chrome();
+        public bool CanChangeIp = true;
         public Config Config { get; private set; } = Config.Instance;
+        
         public MissionLoader MissionLoader { get; private set; } = new MissionLoader();
         public MailProvider.MailProvider Mail { get; private set; } = MailProvider.MailProvider.Instance;
         public async Task LoadMission()
@@ -34,12 +39,17 @@ namespace MissionHacker
         }
         public async Task Run()
         {
+            _mailBrowser = new MailChrome();
             if (MissionLoader.MissionList.Count <= 0)
             {
                 return;
             }
             while (true)
             {
+                MissionEvents.OnMissionLoaded(this, new MissionLoadedArgs()
+                {
+                    Max = MissionLoader.MissionList.Count,
+                });
                 // 这轮处理是否刚开始
                 var first = true;
                 // 获取邮箱池内的邮箱
@@ -53,11 +63,9 @@ namespace MissionHacker
                     throw new("邮箱已用完或无法获取");
                 }
                 // 新建邮件浏览器和比特浏览器
-                var mailBrowser = new MailChrome();
-                var mainBrowser = new Chrome();
                 var area = "";
                 var allHandled = true;
-                foreach (var l in MissionLoader.MissionList.Where(l => !Mail.IsMailUsed(l.Keyword)))
+                foreach (var l in MissionLoader.MissionList)
                 {
                     // 计算这个任务组是不是已经做完了. 如果所有任务组都是 True, 那么 allHandled 也是 true. 则软件停止
                     allHandled = allHandled && l.IsAllHandled();
@@ -68,7 +76,8 @@ namespace MissionHacker
                     Console.WriteLine(l.Keyword);
                     // 获取链接. 没链接就获取代码.
                     var codes = l.GetCodes();
-                    if (codes is null) continue;
+                    // 查看这个邮箱是否已经做了这个任务
+                    if (codes is null || Mail.IsMailUsed(l.Keyword)) continue;
                     var link = new Links
                     {
                         Link = codes.Code,
@@ -77,7 +86,10 @@ namespace MissionHacker
                     // 如果当前的 ip 地区不为任务要求的地区或者这是某一轮的第一个任务组, 则执行换 ip 的操作
                     if (l.Area != area || first)
                     {
-                        // mainBrowser.ChangeIp(l.Area);
+                        if (CanChangeIp)
+                        {
+                            _mainBrowser.ChangeIp(l.Area);
+                        }
                         area = l.Area;
                         first = false;
                     }
@@ -102,28 +114,31 @@ namespace MissionHacker
                     // 启动任务处理器
                     // await handler.SetBrowser(mainBrowser);
                     await (await handler
-                            .SetBrowser(mainBrowser))
-                        .SetMailBrowser(mailBrowser);
+                            .SetBrowser(_mainBrowser))
+                        .SetMailBrowser(_mailBrowser);
                      handler.Init();
-                     await handler.RunAsync();
-                    _progressBarNum++;
-                    MissionEvents.SetMissionDoneNum(_progressBarNum);
-                    l.NextCode();
-                    Mail.Record(l.Keyword);
+                     try
+                     {
+                         await handler.RunAsync();
+                     }
+                     catch(Exception e)
+                     {
+                         MissionEvents.ThrowException(this, e, $"任务 {l.Keyword} ({link.Link} | {link.Domain}) 运行失败");
+                     }                    
+                     finally
+                     {
+                         _progressBarNum++;
+                         MissionEvents.SetMissionDoneNum(_progressBarNum);
+                         l.NextCode();
+                         Mail.Record(l.Keyword);
+                     }
                 }
                 _progressBarNum = 0;
                 MissionEvents.SetMissionDoneNum(_progressBarNum);
-                var driver = await mainBrowser.GetDriver();
-                driver.Quit();
                 if (allHandled)
                 {
                     break;
                 }
-                MissionEvents.OnMissionLoaded(this, new MissionLoadedArgs()
-                {
-                    Max = MissionLoader.MissionList.Count,
-                });
-                return;
             }
         }
     }

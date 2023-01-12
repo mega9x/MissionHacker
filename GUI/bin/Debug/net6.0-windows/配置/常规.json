@@ -1,9 +1,1 @@
-{
-  "Proxy": "127.0.0.1:40000",
-  "ProxyApi": "http://192.168.101.3:9049/v1/ips?num=1\u0026country=\u56FD\u5BB6\u0026state=all\u0026city=all\u0026zip=all\u0026t=txt\u0026port=40000\u0026isp=all\u0026start=\u0026end=",
-  "BitApi": "http://127.0.0.1:62105",
-  "BitBrowserId": "227b02a2613a45479aec5cdf5276da1a",
-  "ApiReplacement": "\u56FD\u5BB6",
-  "MaxWait": 4000,
-  "MinWait": 1000
-}
+{"Proxy":"127.0.0.1:40000","ProxyApi":"http://192.168.101.3:9049/v1/ips?num=1\u0026country=\u56FD\u5BB6\u0026state=all\u0026city=all\u0026zip=all\u0026t=txt\u0026port=40000\u0026isp=all\u0026start=\u0026end=","BitApi":"http://127.0.0.1:62105","BitBrowserId":"227b02a2613a45479aec5cdf5276da1a","ApiReplacement":"\u56FD\u5BB6","MaxWait":4000,"MinWait":1000}

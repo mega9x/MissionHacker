@@ -15,11 +15,6 @@ namespace MissionHandler.MissionFactory;
 
 public class FlirtDating : AbstractMissionHandler
 {
-    public MailChrome MailChrome { get; set; }
-    public IBrowser Browser { get; set; }
-    public MissionInfo info { get; set; }
-    private IWebDriver MainDriver { get; set; }
-    private IWebDriver MailDriver { get; set; }
     public IMissionHandler SetMailBrowser(MailChrome browser)
     {
         MailChrome = browser;
@@ -37,16 +32,6 @@ public class FlirtDating : AbstractMissionHandler
     }
     public async Task<IMissionHandler> RunAsync()
     {
-        if(MailChrome is null && Browser is null)
-        {
-            throw new NullReferenceException();
-        }
-        MainDriver = await Browser.GetDriver();
-        MailDriver = await MailChrome.GetDriver(info.Mail);
-        MainDriver.Navigate().GoToUrl(info.Links.Domain);
-        MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());
-        MainDriver.ExecuteJavaScript($"window.open('{info.Links.Link}')");
-        MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());
         await Task.Delay(8000);
         var allInput = MainDriver.FindElements(By.CssSelector(".form-input > input"));
         var allSelect = MainDriver.FindElements(By.CssSelector(".form-select"));
@@ -78,7 +63,7 @@ public class FlirtDating : AbstractMissionHandler
         allInput[2].SendKeys(info.Mail.MailPd);
         await Awaiter.GetDelay();
         MainDriver.FindElement(By.CssSelector(".submit-btn")).Click();
-        await (await MailChrome.ClickOther()).ClickMailFromCurrent("Flirt");
+        await (await MailChrome.ClickInbox()).ClickMailFromCurrent("Flirt");
         await Task.Delay(800);
         var href = MailDriver.FindElement(By.CssSelector("#ReadingPaneContainerId > div > div > div > div.L72vd > div > div:nth-child(2) > div.aVla3 > div > div > div > div > div.XbIp4.jmmB7.GNqVo.yxtKT.allowTextSelection > div > div > div > table > tbody > tr:nth-child(3) > td > center > table > tbody > tr:nth-child(4) > td > table > tbody > tr:nth-child(4) > td:nth-child(2) > a"))
             .GetAttribute("href");

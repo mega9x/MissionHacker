@@ -1,14 +1,18 @@
-﻿using Models.Data;
+﻿using MissionHacker.ConfigHelper;
+using Models.Data;
+using System.Text;
+using System.Text.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
+using UserAgentGenerator;
 
 namespace Crawler;
 
 public class AbstractBrowser : IBrowser
 {
-    public IPData IPData { get; set; } = new();
+    protected IPData IPData { get; set; } = new();
     public TimeSpan Timeout
     {
         get => Driver.Manage().Timeouts().ImplicitWait; 
@@ -17,21 +21,34 @@ public class AbstractBrowser : IBrowser
     private IWebElement _queryed;
     private IWebElement _queryedTmp;
     private IEnumerable<IWebElement> _queryedAll;
+    protected KeyValuePair<ChromeOptions, ChromeDriverService> _chromeOptions;
     public IWebElement Queryed => _queryed;
     public IEnumerable<IWebElement> QueryedAll => _queryedAll;
-
+    internal string RemoteUri { get; set; } = "";
     internal ChromeDriver Driver { get; set; } = null;
-    public virtual Task<IWebDriver> GetDriver()
+    protected AbstractBrowser()
     {
-        throw new NotImplementedException();
+        _chromeOptions = new KeyValuePair<ChromeOptions, ChromeDriverService>(new ChromeOptions(), ChromeDriverService.CreateDefaultService(".\\driver"));
+        _chromeOptions.Value.HideCommandPromptWindow = true;
+        _chromeOptions.Key.AddArgument("--incognito");
+        _chromeOptions.Key.AddArgument("--private");
+        _chromeOptions.Key.AddArgument("--lang=en");
+
+    }
+    public virtual async Task<IWebDriver> GetDriver()
+    {
+        return Driver;
     }
     public virtual IBrowser ChangeIp(string country)
     {
-        throw new NotImplementedException();
+        var uri = Config.Instance.General!.ProxyApi.Replace(Config.Instance.General!.ApiReplacement, country);
+        var client = new HttpClient();
+        client.GetStringAsync(uri);
+        return this;
     }
     public virtual IPData GetIPData()
     {
-        throw new NotImplementedException();
+        return this.IPData;
     }
     public IBrowser SendKeysByCss(string css, string keys)
     {
@@ -84,6 +101,26 @@ public class AbstractBrowser : IBrowser
         _queryed.Clear();
         return this;
     }
+    public async Task<IBrowser> WaitUntilNull(string css, int timeout)
+    {
+        var t = Timeout;
+        for (var i = 0; i < timeout; i++)
+        {
+            try
+            {
+                Driver.Manage().Timeouts().ImplicitWait = TimeSpan.Zero;
+                Driver.FindElement(By.CssSelector(css));
+                await Task.Delay(1000);
+            }
+            catch
+            {
+                Driver.Manage().Timeouts().ImplicitWait = t;
+                break;
+            }
+        }
+        Driver.Manage().Timeouts().ImplicitWait = t;
+        return this;
+    }
     public IBrowser End()
     {
         if (_queryedTmp is null)
@@ -107,6 +144,23 @@ public class AbstractBrowser : IBrowser
         Driver.ExecuteJavaScript($"document.querySelector('{css}').click()");
         return this;
     }
+    public async Task Quit()
+    {
+        Driver.Quit();
+    }
+    public virtual async Task<IBrowser> RefreshIpData()
+    {
+        var winHandler = Driver.CurrentWindowHandle;
+        Driver.Manage().Cookies.DeleteAllCookies();
+        Timeout = TimeSpan.FromSeconds(120);
+        Driver.SwitchTo().NewWindow(WindowType.Tab);
+        Driver.Url = "http://ip-api.com/json";
+        var output = Driver.FindElement(By.CssSelector("body > pre")).Text;
+        IPData = JsonSerializer.Deserialize<IPData>(output);
+        Driver.Close();
+        Driver.SwitchTo().Window(winHandler);
+        return this;
+    }
     // public IBrowser SetTimeout(TimeSpan span)
     // {
     //     Driver.Manage().Timeouts().ImplicitWait = span;
@@ -116,6 +170,13 @@ public class AbstractBrowser : IBrowser
     // {
     //     return Driver.Manage().Timeouts().ImplicitWait;
     // }
+    protected void InitChrome()
+    {
+        _chromeOptions.Key.DebuggerAddress = RemoteUri;
+        Driver = new ChromeDriver(_chromeOptions.Value, _chromeOptions.Key);
+        Timeout = TimeSpan.FromSeconds(60); 
+    }
+    
     private IWebElement Selector(string css)
     {
         var ele = Driver.FindElement(By.CssSelector(css));

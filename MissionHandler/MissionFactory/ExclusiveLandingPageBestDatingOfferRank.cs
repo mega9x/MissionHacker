@@ -25,14 +25,6 @@ public class ExclusiveLandingPageBestDatingOfferRank : AbstractMissionHandler
     }
     public async Task<IMissionHandler> RunAsync()
     {
-        MailDriver = await MailChrome.GetDriver(info.Mail);
-        MainDriver = await Browser.GetDriver();
-        MainDriver.SwitchTo().NewWindow(WindowType.Tab);
-        MainDriver.Navigate().GoToUrl("https://makefriendsfeed.com/");
-        MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());
-        MainDriver.ExecuteJavaScript("window.open('https://date-now.pl/DtTdqI1v')");
-        MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());
-        MainDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
         await Task.Delay(500);
         MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());
         await Task.Delay(500);

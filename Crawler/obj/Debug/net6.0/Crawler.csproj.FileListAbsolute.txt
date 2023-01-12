@@ -22,3 +22,5 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6
 E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\BitBrowser.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\Events.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\Events.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\Utils.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\Utils.pdb
