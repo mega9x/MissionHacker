@@ -24,3 +24,7 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6
 E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\Events.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\Utils.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\Utils.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\ConstStr.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\DataLibs.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\ConstStr.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\Crawler\bin\Debug\net6.0\DataLibs.pdb

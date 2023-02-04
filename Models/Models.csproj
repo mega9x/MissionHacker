@@ -8,6 +8,12 @@
 
     <ItemGroup>
       <PackageReference Include="Selenium.WebDriver" Version="4.7.0" />
+      <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ConstStr\ConstStr.csproj" />
+      <ProjectReference Include="..\DataLibs\DataLibs.csproj" />
     </ItemGroup>
 
 </Project>

@@ -7,6 +7,7 @@ using Events;
 using Events.EventArgs;
 using MissionHandler.InfoGen;
 using Models;
+using Models.Enum;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
 using OutlookHacker.Main.MailName;
@@ -16,85 +17,16 @@ namespace MissionHandler.MissionFactory;
 
 public class Elitesingles : AbstractMissionHandler
 {
-    private int sex = RandomNumberGenerator.GetInt32(0, 2);
     private string genderSelectorOne = "";
     private string genderSelectorOne_LookingFor = "";
     private string genderSelectorTwo = "";
     private string genderSelectorTwo_LookingFor = "";
-    private int tall = 0;
     private bool tallAnswerd = false;
     private const string mailConfirmXPath = "/html/body/div[2]/div/div[2]/div[2]/div[2]/div[1]/div/div/div[3]/div/div[3]/div[3]/div/div/div/div/div[2]/div/div[2]/div[1]/div/div/div/div/div[3]/div/div/div/div/table/tbody/tr/td/table[2]/tbody/tr/td/table[3]/tbody/tr/td[2]/table/tbody/tr[3]/td[2]/table/tbody/tr/td/div/a";
-    public IMissionHandler SetMailBrowser(MailChrome browser)
-    {
-        MailChrome = browser;
-        return this;
-    }
-    public IMissionHandler SetBrowser(IBrowser browser)
-    {
-        Browser = browser;
-        return this;
-    }
-    public IMissionHandler SetInfo(MissionInfo info)
-    {
-        this.info = info;
-        return this;
-    }
     public override async Task<IMissionHandler> RunAsync()
     {
-        MailChrome.Mail = info.Mail;
-        await MailChrome.Login();
-        tall = sex == 0 ? RandomNumberGenerator.GetInt32(169, 190) : RandomNumberGenerator.GetInt32(150, 180);
-        var random = new RandomGen();
-        var nickname = random.GetRandomNameWithoutEnding();
-        if (sex == 0)
-        {
-            genderSelectorOne = "#genderMale";
-            genderSelectorOne_LookingFor = "#searchedGenderFemale";
-            genderSelectorTwo =
-                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(2)";
-            genderSelectorTwo_LookingFor =
-                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(1)";
-        }
-        else
-        {
-            genderSelectorOne = "#genderFemale";
-            genderSelectorOne_LookingFor = "#searchedGenderMale";
-            genderSelectorTwo =
-                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(1)";
-
-            genderSelectorTwo_LookingFor =
-                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(2)";
-        }
-        var birthyear = RandomNumberGenerator.GetInt32(1957, 1994);
-        var age = DateTime.Today.Year - birthyear;
-        var ageSelectorIndex = age switch
-        {
-            > 18 and < 21 => 0,
-            > 22 and < 27 => 1,
-            > 28 and < 39 => 2,
-            > 40 and < 49 => 3,
-            > 50 and < 59 => 4,
-            > 60 and < 69 => 5,
-            _ => 0
-        };
-        MainDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(180);
-        // 打开年龄选择器
-        var password = random.GetRandomName() + RandomNumberGenerator.GetInt32(0, 9999);
-        MainDriver.ExecuteJavaScript($"document.querySelector('{genderSelectorOne}').click()");
-        MainDriver.ExecuteJavaScript($"document.querySelector('{genderSelectorOne_LookingFor}').click()");
-        MainDriver.FindElement(By.CssSelector("#custom-select")).Click();
-        MainDriver.FindElements(By.CssSelector(".ageRange-list > div"))[ageSelectorIndex].Click();
-        MainDriver.FindElement(By.CssSelector("#emailaddy")).SendKeys(info.Mail.MailName);
-        MainDriver.FindElement(By.CssSelector("#legal")).Click();
-        Browser.ClickByJsCss("#submit-btn-01");
-        await Wait();
-        MainDriver.FindElement(By.CssSelector("#password")).SendKeys(password);
-        await Wait(1000);
-        MainDriver.FindElement(By.CssSelector("#passwordRepeat")).SendKeys(password);
-        Browser.ClickByCss("#submit-btn");
-        MainDriver.SwitchTo().Frame(Browser.QuerySelector("#h-captcha-wrapper > iframe").End().Queryed);
-        Browser.ClickByCss("#anchor-state");
-        MainDriver.SwitchTo().ParentFrame();
+        // 注册
+        await Reg();
         await Wait(1000);
         await Wait();
         Browser.ClickByCss(
@@ -122,7 +54,7 @@ public class Elitesingles : AbstractMissionHandler
         await Wait(1200);
         Browser.SendKeysByCss(
             "#psytest > div > div > main > div > div.section.single > div > div > div > div > div > div > div > label > input",
-            nickname);
+            Person.Firstname);
         await Wait();
         await Wait(1200);
         ClickBigGreenNextBtn();
@@ -156,7 +88,7 @@ public class Elitesingles : AbstractMissionHandler
         Browser.ClickByCss("#year-select-field > div > div.year-select.spark__value-container.css-1hwfws3");
         await Wait(1200);
         ReadOnlyCollection<IWebElement>? dropDown = MainDriver.FindElements(By.CssSelector(".spark__option"));
-        dropDown.First(x => x.Text == birthyear.ToString()).Click();
+        dropDown.First(x => x.Text == Person.Birthyear.ToString()).Click();
         await Wait();
         await Wait(1200);
         ClickBigGreenNextBtn();
@@ -167,7 +99,7 @@ public class Elitesingles : AbstractMissionHandler
         await Wait(1200);
         Browser.SendKeysByCss(
             "#react-select-5-input",
-            random.GetRandomProfession());
+            Person.Profession);
         ClickBigGreenNextBtn();
         while (true)
         {
@@ -193,7 +125,7 @@ public class Elitesingles : AbstractMissionHandler
         await Wait(1200);
         Browser.ClickByCss(
             "body > div:nth-child(2) > main > div > div > section.subheader > div > div.back.hide-for-small > a");
-        MainDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+        MainDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(60);
         await MailChrome.ClickMail("EliteSingles Confirm your email address to complete");
         try
         {
@@ -206,8 +138,62 @@ public class Elitesingles : AbstractMissionHandler
         {
             MissionEvents.ThrowException(this, e, "无法进行邮箱验证");
         }
+        return this;
+    }
+    private async Task<IMissionHandler> Reg()
+    {
+        if (Person.Sex == Sex.Male)
+        {
+            genderSelectorOne = "#genderMale";
+            genderSelectorOne_LookingFor = "#searchedGenderFemale";
+            genderSelectorTwo =
+                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(2)";
+            genderSelectorTwo_LookingFor =
+                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(1)";
+        }
+        else
+        {
+            genderSelectorOne = "#genderFemale";
+            genderSelectorOne_LookingFor = "#searchedGenderMale";
+            genderSelectorTwo =
+                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(1)";
 
-        // MailChrome.ClickLatestFocused()
+            genderSelectorTwo_LookingFor =
+                "#psytest > div > div > main > div > div.section.single > div > div > div > button:nth-child(2)";
+        }
+        var ageSelectorIndex = Person.Age switch
+        {
+            > 18 and < 21 => 0,
+            > 22 and < 27 => 1,
+            > 28 and < 39 => 2,
+            > 40 and < 49 => 3,
+            > 50 and < 59 => 4,
+            > 60 and < 69 => 5,
+            _ => 0
+        };
+        var acceptAll = MainDriver.FindElements(By.CssSelector("#onetrust-accept-btn-handler"));
+        if (acceptAll.Count > 0)
+        {
+            acceptAll[0].Click();
+        }
+        MainDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(180);
+        // 打开年龄选择器
+        var password = Person.Nickname + RandomNumberGenerator.GetInt32(0, 9999);
+        MainDriver.ExecuteJavaScript($"document.querySelector('{genderSelectorOne}').click()");
+        MainDriver.ExecuteJavaScript($"document.querySelector('{genderSelectorOne_LookingFor}').click()");
+        MainDriver.FindElement(By.CssSelector("#custom-select")).Click();
+        MainDriver.FindElements(By.CssSelector(".ageRange-list > div"))[ageSelectorIndex].Click();
+        MainDriver.FindElement(By.CssSelector("#emailaddy")).SendKeys(info.Mail.MailName);
+        MainDriver.FindElement(By.CssSelector("#legal")).Click();
+        Browser.ClickByJsCss("#submit-btn-01");
+        await Wait();
+        MainDriver.FindElement(By.CssSelector("#password")).SendKeys(password);
+        await Wait(1000);
+        MainDriver.FindElement(By.CssSelector("#passwordRepeat")).SendKeys(password);
+        Browser.ClickByCss("#submit-btn");
+        MainDriver.SwitchTo().Frame(Browser.QuerySelector("#h-captcha-wrapper > iframe").End().Queryed);
+        Browser.ClickByCss("#anchor-state");
+        MainDriver.SwitchTo().ParentFrame();
         return this;
     }
     private async Task<bool> AutoSelect()
@@ -228,7 +214,7 @@ public class Elitesingles : AbstractMissionHandler
                         .SendKeys(Keys.Control + "a")
                         .SendKeys(Keys.Backspace)
                         .Clear()
-                        .SendKeys(tall.ToString());
+                        .SendKeys(Person.Tall.ToString());
                     tallAnswerd = true;
                     break;
                 }

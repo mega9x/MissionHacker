@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Config")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("MissionHackerConfig")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("Config")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Config")]
+[assembly: System.Reflection.AssemblyProductAttribute("MissionHackerConfig")]
+[assembly: System.Reflection.AssemblyTitleAttribute("MissionHackerConfig")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。

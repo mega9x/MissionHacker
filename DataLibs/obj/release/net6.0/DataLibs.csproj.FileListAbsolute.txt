@@ -1,0 +1,15 @@
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\bin\release\net6.0\DataLibs.deps.json
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\bin\release\net6.0\DataLibs.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\bin\release\net6.0\DataLibs.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\bin\release\net6.0\ConstStr.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\bin\release\net6.0\ConstStr.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.csproj.AssemblyReference.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.GeneratedMSBuildEditorConfig.editorconfig
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.AssemblyInfoInputs.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.AssemblyInfo.cs
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.csproj.CoreCompileInputs.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.csproj.CopyComplete
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\refint\DataLibs.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\DataLibs.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\DataLibs\obj\release\net6.0\ref\DataLibs.dll

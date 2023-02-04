@@ -1,0 +1,12 @@
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\bin\release\net6.0\BitBrowser.deps.json
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\bin\release\net6.0\BitBrowser.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\bin\release\net6.0\BitBrowser.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\BitBrowser.csproj.AssemblyReference.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\BitBrowser.GeneratedMSBuildEditorConfig.editorconfig
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\BitBrowser.AssemblyInfoInputs.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\BitBrowser.AssemblyInfo.cs
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\BitBrowser.csproj.CoreCompileInputs.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\BitBrowser.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\refint\BitBrowser.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\BitBrowser.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\BitBrowser\obj\release\net6.0\ref\BitBrowser.dll

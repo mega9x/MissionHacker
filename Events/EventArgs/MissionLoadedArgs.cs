@@ -2,5 +2,5 @@
 
 public class MissionLoadedArgs
 {
-    public int Max { get; set; }
+    public int Max { get; init; }
 }

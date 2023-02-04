@@ -58,3 +58,8 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-w
 E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\ChromeDevToolsClient.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\Utils.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\Utils.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\ConstStr.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\DataLibs.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\ConstStr.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\DataLibs.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\bin\Debug\net6.0-windows\Tomlyn.dll

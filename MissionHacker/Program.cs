@@ -7,7 +7,6 @@ using Crawler;
 using MissionHacker.ConfigHelper;
 using MissionHandler;
 using Models;
-using Models.ConstStr;
 using Models.Enums;
 using OpenQA.Selenium.Support.Extensions;
 
@@ -48,9 +47,9 @@ try
                 area = l.Area;
             }
             Console.WriteLine(l.Keyword);
-            var codes = l.GetCodes();
+            var codes = l.GetCode();
             if (codes is null) continue;
-            var strLink = uriRegex.Match(l.GetCodes()!.Code).Value;
+            var strLink = uriRegex.Match(l.GetCode()!.Code).Value;
             var link = new Links
             {
                 Link = strLink,

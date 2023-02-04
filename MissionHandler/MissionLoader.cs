@@ -1,100 +1,89 @@
 ﻿using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography;
 using System.Text.Json;
+using System.Text.RegularExpressions;
+using ConstStr;
+using DataLibs;
+using MissionHacker.ConfigHelper;
+using MissionHacker.ConfigHelper.Logger;
 using Models;
-using Models.ConstStr;
+using Models.Config.MissionHacker;
 using Models.Enums;
+using Models.Log;
 
 namespace MissionHandler;
 
 public class MissionLoader
 {
+    private List<BackendModel> _backendModels = new();
+    private LoaderOptions _options = new();
     public List<MissionModel> MissionList { get; private set; } = new();
-
+    public MissionLoader()
+    { }
+    public MissionLoader(LoaderOptions options)
+    {
+        _options = options;
+    }
+    public void Clear()
+    {
+        _backendModels.Clear();
+        MissionList.Clear();
+        MissionLogger.Instance.Clear();
+    }
     public async Task LoadMission()
     {
-        var client = new HttpClient();
-        var response = await client.GetStreamAsync(Api.GET_MISSION);
-        var list = JsonSerializer.Deserialize<IEnumerable<BackendModel>>(response).ToList();
+        Clear();
+        await RefreshBackend();
         var supportedMissions = (JsonSerializer
-                .Deserialize<IEnumerable<MissionConfigModel>>(await File.ReadAllTextAsync(ConfigPath.CONST_MISSION)) ?? Array.Empty<MissionConfigModel>())
+                .Deserialize<IEnumerable<MissionConfigModel>>(await File.ReadAllTextAsync(ConfigPath.ConstMission)) ?? Array.Empty<MissionConfigModel>())
             .ToList();
-        var missionHasLink = list.Where(i => i.Link is not null && i.Link.Length > 0);
-        var missionHasCode = list.Where(i => i.Code is not null && i.Code.Length > 0 && i.Link.Length <= 0);
-        var distinctCode = missionHasCode.Select(i => i.Code).Distinct().ToList();
-        var distinctLink = missionHasLink.Select(i => i.Link).Distinct().ToList();
-        var finalCodeMission = missionHasCode.Where(i =>
-        {
-            var contains =  distinctCode.Contains(i.Code);
-            if (contains)
-            {
-                distinctCode.RemoveAll(j => i.Code == j);
-            }
-            return contains;
-        }).ToList();
-        var finalLinkMission = missionHasLink.Where(i =>
-        {
-            var contains =  distinctLink.Contains(i.Link);
-            if (contains)
-            {
-                distinctLink.RemoveAll(j => i.Link == j);
-            }
-            return contains;
-        }).ToList();
-        finalCodeMission.AddRange(finalLinkMission);
-        list = finalCodeMission;
+        // 今天做过的任务
         var blockList = new List<string>();
-        var blockListPath = ConfigPath.BLOCK_LSIT.Replace("date", DateTime.Now.ToString("yyyy-M-d"));
-        if (!string.IsNullOrEmpty(blockListPath))
-        {
-            if (!File.Exists(blockListPath))
-            {
-                File.Create(blockListPath).Close();
-            }
-            else
-            {
-                try
-                {
-                    blockList = File.ReadAllLines(blockListPath).ToList();
-                        blockList = blockList.Where(s =>
-                        Missions.AllMissionsKeywordSupported.Keys.Contains(s)
-                    ).ToList();
-                }
-                catch(Exception e)
-                {
-                    blockList = new();
-                }
-            }
-        }
         // 处理获取的任务列表并去除不做的任务
-        foreach (var l in list)
+        foreach (var l in _backendModels)
         {
-            // 如果黑名单
-            if (blockList.Find(i => l.Name.ToLower().Contains(i)) is not null)
-            {
-                continue;
-            }
             // 如果这个任务关键词是匹配的
             var keyword = Missions.AllMissionsKeywordSupported.Keys.ToList().Find(i => l.Name.ToLower().Contains(i));
             if (keyword is null)
             {
                 continue;
             }
-            var missionConfig = supportedMissions.Find(i => i.Keyword == keyword);
-            if (missionConfig is null)
+            // 如果已启用
+            if (l.Launched == "false")
+            {
+                continue;
+            }
+            // 如果识别码匹配
+            if ((l.MId != Config.Instance.MissionHackerConfig.General.Id) && _options.MatchMId)
             {
                 continue;
             }
             // 如果 MissionModel 列表内可以找到
+            var missionConfig = supportedMissions.Find(i => i.Keyword == keyword);
+            if (missionConfig is null && _options.UseLocalWhiteLsit)
+            {
+                continue;
+            }
+            var area = l.Area;
+            var times = int.Parse(l.Times);
+            if (_options.UseLocalWhiteLsit)
+            {
+                area = missionConfig.Area;
+                times = RandomNumberGenerator.GetInt32(missionConfig.MinTimes, missionConfig.MaxTimes + 1);
+            }
+            // 如果已经是最大次数
+            var finalTimes = times - Libs.Instance.GetCountByKeyword(keyword);
+            if(finalTimes <= 0) continue;
             var missionModel = MissionList.Find(m => m.Keyword == keyword);
             if (missionModel is null)
             {
                 missionModel = new MissionModel()
                 {
+                    Fullname = l.Name,
                     Keyword = keyword,
-                    Area = missionConfig.Area,
+                    Area =  area,
                     Platform = l.Platform,
-                    MaxTimes = RandomNumberGenerator.GetInt32(missionConfig.MinTimes, missionConfig.MaxTimes + 1),
+                    MaxTimes = times,
                 };
                 var mis = PushMissionModel(missionModel, l);
                 if (mis is null)
@@ -116,21 +105,59 @@ public class MissionLoader
             MissionList.Sort((left, right) =>
                 string.Compare(right.Area, left.Area, StringComparison.Ordinal)
             );
+            MissionLogger.Instance.Push(new () {
+                Fullname = l.Name,
+                Price = l.Price,
+                Link = l.GetLink(),
+                MaxTimes = times,
+            });
         }
     }
+    private async Task RefreshBackend()
+    {
+        await (await GetMissionFromBackend()).DistinctBackendList();
+    }
+    private async Task<MissionLoader> GetMissionFromBackend()
+    {
+        var client = new HttpClient();
+        var response = await client.GetStreamAsync(Api.GET_MISSION);
+        _backendModels = JsonSerializer.Deserialize<IEnumerable<BackendModel>>(response).ToList();
+        return this;
+    }
+    private async Task<MissionLoader> DistinctBackendList()
+    {
+        // code link 去重
+        var missionHasLink = _backendModels.Where(i => i.Link is not null && i.Link.Length > 0);
+        var missionHasCode = _backendModels.Where(i => i.Code is not null && i.Code.Length > 0 && i.Link.Length <= 0);
+        var distinctCode = missionHasCode.Select(i => i.Code).Distinct().ToList();
+        var distinctLink = missionHasLink.Select(i => i.Link).Distinct().ToList();
+        var finalCodeMission = missionHasCode.Where(i =>
+        {
+            var contains =  distinctCode.Contains(i.Code);
+            if (contains)
+            {
+                distinctCode.RemoveAll(j => i.Code == j);
+            }
+            return contains;
+        }).ToList();
+        var finalLinkMission = missionHasLink.Where(i =>
+        {
+            var contains =  distinctLink.Contains(i.Link);
+            if (contains)
+            {
+                distinctLink.RemoveAll(j => i.Link == j);
+            }
+            return contains;
+        }).ToList();
+        finalCodeMission.AddRange(finalLinkMission);
+        _backendModels = finalCodeMission;
+        return this;
+    }
+    
     
     private MissionModel? PushMissionModel(MissionModel missionModel, BackendModel backendModel)
     {
-        if (backendModel.Link is not null && backendModel.Link.Length > 0)
-        {
-            missionModel.PushCode(backendModel.Link, backendModel.Domain.Trim());
-            return missionModel;
-        }
-        if (backendModel.Code is not null && backendModel.Code.Length > 0)
-        {
-            missionModel.PushCode(backendModel.Code, backendModel.Domain.Trim());
-            return missionModel;
-        }
-        return null;
+        missionModel.PushCode(backendModel.GetLink(), backendModel.Domain.Trim());
+        return missionModel;
     }
 }

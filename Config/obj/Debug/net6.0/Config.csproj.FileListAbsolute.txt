@@ -16,3 +16,7 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\Config\obj\Debug\net6.
 E:\workspace\projects\project\MissionHacker\MissionHacker\Config\bin\Debug\net6.0\selenium-manager\linux\selenium-manager
 E:\workspace\projects\project\MissionHacker\MissionHacker\Config\bin\Debug\net6.0\selenium-manager\macos\selenium-manager
 E:\workspace\projects\project\MissionHacker\MissionHacker\Config\bin\Debug\net6.0\selenium-manager\windows\selenium-manager.exe
+E:\workspace\projects\project\MissionHacker\MissionHacker\Config\bin\Debug\net6.0\ConstStr.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Config\bin\Debug\net6.0\DataLibs.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Config\bin\Debug\net6.0\ConstStr.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\Config\bin\Debug\net6.0\DataLibs.pdb

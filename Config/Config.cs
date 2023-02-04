@@ -1,22 +1,24 @@
 ﻿using System.Text.Json;
-using Models;
-using Models.ConstStr;
+using ConstStr;
+using Models.Config.MissionHacker;
 using Models.Data;
+using Tomlyn;
 
 namespace MissionHacker.ConfigHelper;
 
 public class Config
 {
-    public General? General { get; private set; }
-    public static Config Instance = new Lazy<Config>(() => new Config()).Value;
-    public List<USAddressModel> USAddressModels;
+    public MissionHackerConfigRoot? MissionHackerConfig { get; private set; }
+    public static readonly Config Instance = new Lazy<Config>(() => new Config()).Value;
     private Config()
     {
         if (!Directory.Exists(ConfigPath.CONFIG_ROOT))
         {
             Directory.CreateDirectory(ConfigPath.CONFIG_ROOT);
         }
-        if (!File.Exists(ConfigPath.CONST_MISSION))
+        // 白名单任务
+        // 要合并为 Root
+        if (!File.Exists(ConfigPath.ConstMission))
         {
             var str = JsonSerializer.Serialize(new List<MissionConfigModel>()
             {
@@ -28,36 +30,61 @@ public class Config
                     Keyword = "",
                 }
             });
-            File.Create(ConfigPath.CONST_MISSION).Close();
-            File.WriteAllText(ConfigPath.CONST_MISSION, str);
+            File.Create(ConfigPath.ConstMission).Close();
+            File.WriteAllText(ConfigPath.ConstMission, str);
         }
-        if (!File.Exists(ConfigPath.MAIL_POOL))
+        if (!File.Exists(ConfigPath.MailPool))
         {
-            File.Create(ConfigPath.MAIL_POOL).Close();
-            File.WriteAllText(ConfigPath.MAIL_POOL ,$"邮箱: xx@outlook.com | 密码: xxxxxx");
+            File.Create(ConfigPath.MailPool).Close();
+            File.WriteAllText(ConfigPath.MailPool, $"邮箱: xx@outlook.com | 密码: xxxxxx");
         }
-
-        if (!File.Exists(ConfigPath.CONFIG_MAIL_USED))
+        if (!File.Exists(ConfigPath.ConfigMailUsed))
         {
-            File.Create(ConfigPath.CONFIG_MAIL_USED).Close();
+            File.Create(ConfigPath.ConfigMailUsed).Close();
         }
-        if (!File.Exists(ConfigPath.CONFIG_GENERAL))
+        // 尝龟
+        // 要合并为 Root
+        if (!File.Exists(ConfigPath.ConfigGeneral))
         {
-            var str = JsonSerializer.Serialize(new General());
-            File.Create(ConfigPath.CONFIG_GENERAL).Close();
-            File.WriteAllText(ConfigPath.CONFIG_GENERAL, str);
+            var str = Toml.FromModel(new MissionHackerConfigRoot());
+            File.Create(ConfigPath.ConfigGeneral).Close();
+            File.WriteAllText(ConfigPath.ConfigGeneral, str);
         }
-        General = JsonSerializer.Deserialize<General>(File.ReadAllText(ConfigPath.CONFIG_GENERAL));
-        USAddressModels = JsonSerializer.Deserialize<IEnumerable<USAddressModel>>(File.ReadAllText(ConfigPath.US_ADDRESS_DATA_PATH)).ToList();
+        if (!File.Exists(ConfigPath.ManualBlockList))
+        {
+            File.Create(ConfigPath.ManualBlockList).Close();
+        }
+        if (!Directory.Exists(ConfigPath.LOG_ROOT))
+        {
+            Directory.CreateDirectory(ConfigPath.LOG_ROOT);
+        }
+        MissionHackerConfig = Toml.ToModel<MissionHackerConfigRoot>(File.ReadAllText(ConfigPath.ConfigGeneral));
     }
     public Config SaveBitBrowserConfig(string link, string id)
     {
-        General.BitApi = link;
-        General.BitBrowserId = id;
-        File.Delete(ConfigPath.CONFIG_GENERAL);
-        var str = JsonSerializer.Serialize(General);
-        File.Create(ConfigPath.CONFIG_GENERAL).Close();
-        File.WriteAllText(ConfigPath.CONFIG_GENERAL, str);
+        MissionHackerConfig.General.BitApi = link;
+        MissionHackerConfig.General.BitBrowserId = id;
+        Save();
+        return this;
+    }
+    public Config SaveId(string id)
+    {
+        MissionHackerConfig.General.Id = id;
+        Save();
+        return this;
+    }
+    public Config SaveProxyApi(string ip)
+    {
+        MissionHackerConfig.General.ProxyApi = ip;
+        Save();
+        return this;
+    }
+    private Config Save()
+    {
+        File.Delete(ConfigPath.ConfigGeneral);
+        var str = Toml.FromModel(MissionHackerConfig);
+        File.Create(ConfigPath.ConfigGeneral).Close();
+        File.WriteAllText(ConfigPath.ConfigGeneral, str);
         return this;
     }
 }

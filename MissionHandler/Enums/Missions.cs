@@ -8,6 +8,7 @@ public static class Missions
     {
         {"elitesingles", new Elitesingles()},
         {"flirt-dating", new FlirtDating()},
+        {"christianmingle", new Christianmingle()}
         // "seniorsexmatch",
         // "hookups - soi", 
         // "searchingforsingles - doi",

@@ -1,17 +1,23 @@
-﻿using Crawler;
+﻿using System.Security.Cryptography;
+using Crawler;
 using Models;
+using Models.Data;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
+using OutlookHacker.Main.MailName;
+using Utils.PersonFactory;
 
 namespace MissionHandler.MissionFactory;
 
 public class AbstractMissionHandler : IMissionHandler
 {
+    internal IWebDriver MainDriver { get; set; }
+    internal IWebDriver MailDriver { get; set; }
+    public SinglePerson Person { get; private set; } = global::Utils.PersonFactory.Person.GetRandomPerson();
+    public IPData IpData { get; private set; }
     public MailChrome MailChrome { get; set; }
     public IBrowser Browser { get; set; }
     public MissionInfo info { get; set; }
-    internal IWebDriver MainDriver { get; set; }
-    internal IWebDriver MailDriver { get; set; }
     public virtual IMissionHandler Init()
     {
         if (!info.Links.Domain.StartsWith("http"))
@@ -34,6 +40,7 @@ public class AbstractMissionHandler : IMissionHandler
     {
         Browser = browser;
         MainDriver = await browser.GetDriver();
+        IpData = browser.GetIPData();
         return this;
     }
     public IMissionHandler SetInfo(MissionInfo info)

@@ -4,7 +4,7 @@
 winexe
 C#
 .cs
-E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\obj\Release\net6.0-windows\
+E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\obj\release\net6.0-windows\
 GUI
 none
 false
@@ -13,8 +13,8 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\GUI\App.xaml
 11407045341
 
 3-1233169557
-194-2004305220
+2191062469787
 MainWindow.xaml;
 
-True
+False
 

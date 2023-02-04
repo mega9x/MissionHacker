@@ -1,0 +1,16 @@
+[general]
+id = "mega9x"
+proxy = "127.0.0.1:40000"
+proxy_api = "http://127.0.0.1:9049"
+bit_api = "http://127.0.0.1:62105"
+bit_browser_id = "91b763cbd9f1423d8a9ab8f221efd497"
+max_wait = 10000
+min_wait = 2000
+[mission_config_model]
+keyword = ""
+area = ""
+max_times = 0
+min_times = 0
+[photo_api]
+base = "http://photo.api.ykstudio.pro"
+get_photo_endpoint = ""

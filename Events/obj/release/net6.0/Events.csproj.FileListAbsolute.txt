@@ -1,0 +1,12 @@
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\bin\release\net6.0\Events.deps.json
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\bin\release\net6.0\Events.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\bin\release\net6.0\Events.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\Events.csproj.AssemblyReference.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\Events.GeneratedMSBuildEditorConfig.editorconfig
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\Events.AssemblyInfoInputs.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\Events.AssemblyInfo.cs
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\Events.csproj.CoreCompileInputs.cache
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\Events.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\refint\Events.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\Events.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\Events\obj\release\net6.0\ref\Events.dll

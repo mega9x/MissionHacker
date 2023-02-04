@@ -642,6 +642,14 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "Tomlyn/0.16.2": {
+        "runtime": {
+          "lib/net6.0/Tomlyn.dll": {
+            "assemblyVersion": "0.16.0.0",
+            "fileVersion": "0.16.2.0"
+          }
+        }
+      },
       "UserAgentGenerator/1.22.807.1109": {
         "runtime": {
           "lib/netstandard2.0/UserAgentGenerator.dll": {
@@ -686,10 +694,17 @@
       },
       "Config/1.0.0": {
         "dependencies": {
-          "Models": "1.0.0"
+          "ConstStr": "1.0.0",
+          "Models": "1.0.0",
+          "Tomlyn": "0.16.2"
         },
         "runtime": {
           "Config.dll": {}
+        }
+      },
+      "ConstStr/1.0.0": {
+        "runtime": {
+          "ConstStr.dll": {}
         }
       },
       "Crawler/1.0.0": {
@@ -708,6 +723,14 @@
           "Crawler.dll": {}
         }
       },
+      "DataLibs/1.0.0": {
+        "dependencies": {
+          "ConstStr": "1.0.0"
+        },
+        "runtime": {
+          "DataLibs.dll": {}
+        }
+      },
       "Events/1.0.0": {
         "runtime": {
           "Events.dll": {}
@@ -715,6 +738,7 @@
       },
       "MailProvider/1.0.0": {
         "dependencies": {
+          "ConstStr": "1.0.0",
           "Models": "1.0.0"
         },
         "runtime": {
@@ -735,6 +759,8 @@
       },
       "Models/1.0.0": {
         "dependencies": {
+          "ConstStr": "1.0.0",
+          "DataLibs": "1.0.0",
           "Selenium.WebDriver": "4.7.0"
         },
         "runtime": {
@@ -742,6 +768,12 @@
         }
       },
       "Utils/1.0.0": {
+        "dependencies": {
+          "Chance.NET": "2.2.0",
+          "Config": "1.0.0",
+          "Models": "1.0.0",
+          "Syllabore": "2.0.1"
+        },
         "runtime": {
           "Utils.dll": {}
         }
@@ -1265,6 +1297,13 @@
       "path": "system.threading.timer/4.3.0",
       "hashPath": "system.threading.timer.4.3.0.nupkg.sha512"
     },
+    "Tomlyn/0.16.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NVvOlecYWwhqQdE461UGHUeJ1t2DtGXU+L00LgtBTgWA16bUmMhUIRaCpSkRX5HqAeid/KlXmdH7Sul0mr6HJA==",
+      "path": "tomlyn/0.16.2",
+      "hashPath": "tomlyn.0.16.2.nupkg.sha512"
+    },
     "UserAgentGenerator/1.22.807.1109": {
       "type": "package",
       "serviceable": true,
@@ -1296,7 +1335,17 @@
       "serviceable": false,
       "sha512": ""
     },
+    "ConstStr/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
     "Crawler/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataLibs/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

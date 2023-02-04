@@ -12,4 +12,8 @@
       <ProjectReference Include="..\MissionHacker\MissionHacker.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="104.0.5112.7900" />
+    </ItemGroup>
+
 </Project>

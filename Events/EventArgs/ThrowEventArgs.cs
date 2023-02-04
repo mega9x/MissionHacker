@@ -2,7 +2,7 @@
 
 public class ThrowEventArgs
 {
-    public string SimpleMessage { get; set; }
-    public string FullMessage { get; set; }
-    public Exception Exception { get; set; }
+    public string? SimpleMessage { get; init; }
+    public string? FullMessage { get; init; }
+    public Exception? Exception { get; set; }
 }

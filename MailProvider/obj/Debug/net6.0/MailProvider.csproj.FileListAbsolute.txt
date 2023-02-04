@@ -16,3 +16,7 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\obj\Debug
 E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\obj\Debug\net6.0\refint\MailProvider.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\obj\Debug\net6.0\MailProvider.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\obj\Debug\net6.0\ref\MailProvider.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\bin\Debug\net6.0\ConstStr.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\bin\Debug\net6.0\DataLibs.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\bin\Debug\net6.0\ConstStr.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MailProvider\bin\Debug\net6.0\DataLibs.pdb

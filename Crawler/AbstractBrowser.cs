@@ -7,6 +7,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using UserAgentGenerator;
+using ConstStr;
 
 namespace Crawler;
 
@@ -15,8 +16,8 @@ public class AbstractBrowser : IBrowser
     protected IPData IPData { get; set; } = new();
     public TimeSpan Timeout
     {
-        get => Driver.Manage().Timeouts().ImplicitWait; 
-        set => Driver.Manage().Timeouts().ImplicitWait = value; 
+        get => Driver.Manage().Timeouts().ImplicitWait;
+        set => Driver.Manage().Timeouts().ImplicitWait = value;
     }
     private IWebElement _queryed;
     private IWebElement _queryedTmp;
@@ -28,22 +29,21 @@ public class AbstractBrowser : IBrowser
     internal ChromeDriver Driver { get; set; } = null;
     protected AbstractBrowser()
     {
-        _chromeOptions = new KeyValuePair<ChromeOptions, ChromeDriverService>(new ChromeOptions(), ChromeDriverService.CreateDefaultService(".\\driver"));
+        _chromeOptions = new KeyValuePair<ChromeOptions, ChromeDriverService>(new ChromeOptions(), ChromeDriverService.CreateDefaultService());
         _chromeOptions.Value.HideCommandPromptWindow = true;
         _chromeOptions.Key.AddArgument("--incognito");
         _chromeOptions.Key.AddArgument("--private");
         _chromeOptions.Key.AddArgument("--lang=en");
-
     }
     public virtual async Task<IWebDriver> GetDriver()
     {
         return Driver;
     }
-    public virtual IBrowser ChangeIp(string country)
+    public virtual async Task<IBrowser> ChangeIp(string country)
     {
-        var uri = Config.Instance.General!.ProxyApi.Replace(Config.Instance.General!.ApiReplacement, country);
+        var uri = $"{Config.Instance.MissionHackerConfig.General!.ProxyApi}{Api.PROXY_API}".Replace("COUNTRY", country);
         var client = new HttpClient();
-        client.GetStringAsync(uri);
+        var response = await client.GetStringAsync(uri);
         return this;
     }
     public virtual IPData GetIPData()
@@ -96,6 +96,25 @@ public class AbstractBrowser : IBrowser
         }
         return this;
     }
+    public IBrowser SelectByCss(string css, int index)
+    {
+        var selector = new SelectElement(Driver.FindElement(By.CssSelector(css)));
+        selector.SelectByIndex(index);
+        return this;
+    }
+    public IBrowser SelectByCss(string css, string name)
+    {
+        var selector = new SelectElement(Driver.FindElement(By.CssSelector(css)));
+        selector.SelectByValue(name);
+        return this;
+    }
+    public IBrowser ClickEleOfIframe(string iframeCss, string eleCss)
+    {
+        Driver.SwitchTo().Frame(Driver.FindElement(By.CssSelector(iframeCss)));
+        ClickByCss(eleCss);
+        Driver.SwitchTo().DefaultContent();
+        return this;
+    }
     public IBrowser Clear()
     {
         _queryed.Clear();
@@ -139,7 +158,7 @@ public class AbstractBrowser : IBrowser
         }
         catch (Exception e)
         {
-            
+
         }
         Driver.ExecuteJavaScript($"document.querySelector('{css}').click()");
         return this;
@@ -173,10 +192,10 @@ public class AbstractBrowser : IBrowser
     protected void InitChrome()
     {
         _chromeOptions.Key.DebuggerAddress = RemoteUri;
-        Driver = new ChromeDriver(_chromeOptions.Value, _chromeOptions.Key);
-        Timeout = TimeSpan.FromSeconds(60); 
+        this.Driver = new ChromeDriver(_chromeOptions.Value, _chromeOptions.Key);
+        Timeout = TimeSpan.FromSeconds(120);
     }
-    
+
     private IWebElement Selector(string css)
     {
         var ele = Driver.FindElement(By.CssSelector(css));

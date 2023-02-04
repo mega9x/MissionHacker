@@ -27,7 +27,7 @@ public interface IBrowser
     /// <summary>
     /// 更换 IP 的方法. 默认实现是通过访问 922 的 API 链接来提取 IP.
     /// </summary>
-    public IBrowser ChangeIp(string country);
+    public Task<IBrowser> ChangeIp(string country);
     /// <summary>
     /// 获取已打开浏览器 IP 的数据. 
     /// </summary>
@@ -95,4 +95,22 @@ public interface IBrowser
     /// </summary>
     /// <returns></returns>
     public Task<IBrowser> RefreshIpData();
+    /// <summary>
+    /// 根据 css 来获取 Selector 并按照索引选择值
+    /// </summary>
+    /// <returns></returns>
+    public IBrowser SelectByCss(string css, int index);
+    /// <summary>
+    /// 根据 css 来获取 Selector 并按照字符串选择值
+    /// </summary>
+    /// <param name="css"></param>
+    /// <param name="name"></param>
+    public IBrowser SelectByCss(string css, string name);
+    /// <summary>
+    /// 点击 iframe 下面的元素
+    /// </summary>
+    /// <param name="iframeCss"></param>
+    /// <param name="eleCss"></param>
+    /// <returns></returns>
+    public IBrowser ClickEleOfIframe(string iframeCss, string eleCss);
 }

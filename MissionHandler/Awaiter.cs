@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace MissionHandler
 {
-    class Awaiter
+    public class Awaiter
     {
         public static Task GetDelay()
         {
-            return Task.Delay(RandomNumberGenerator.GetInt32(Config.Instance.General.MinWait, Config.Instance.General.MaxWait));
+            return Task.Delay(RandomNumberGenerator.GetInt32(Config.Instance.MissionHackerConfig!.General.MinWait, Config.Instance.MissionHackerConfig!.General.MaxWait));
         }
     }
 }
