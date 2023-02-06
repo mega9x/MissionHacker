@@ -10,9 +10,9 @@ public class Api
     public static async Task<ResponseBase<OpenBrowserResponse>> OpenBrowser(string id, string api)
     {
         var httpClient = new HttpClient();
-        var browserPara = new OpenBrowser()
+        var browserPara = new OpenBrowser
         {
-            Id = id
+            Id = id,
         };
         var data = new StringContent(JsonSerializer.Serialize(browserPara), Encoding.UTF8, "application/json");
         var response = await httpClient.PostAsync(api + "/browser/open", data);

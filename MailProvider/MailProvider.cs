@@ -12,11 +12,8 @@ public class MailProvider
     public string CurrentMail => AllMail[index - 1];
     public async Task<string> GetMail()
     {
-        if (AllMail.Count <= 0)
-        {
-            var mAllLinesAsync = await File.ReadAllLinesAsync(ConfigPath.MailPool);
-            AllMail = mAllLinesAsync.ToList();
-        }
+        var mAllLinesAsync = await File.ReadAllLinesAsync(ConfigPath.MailPool);
+        AllMail = mAllLinesAsync.ToList();
         var str = AllMail[index];
         index++;
         return str;

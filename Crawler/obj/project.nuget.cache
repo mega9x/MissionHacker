@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BzjIZqWdmyRjsF4k/W5ivRd6PW9v3x766jGpK1RafI6VmyahIFoAxycVMxxXCmU4WuZ674DhlZ9YcUhKyY0bmQ==",
+  "dgSpecHash": "nE9iJ0uN6Bifxh/tiX1cb1/U95321u36cgb5YkXdZvV1j2vANiIyXYT1WE0OnpdHbqs1jRlILIrp35R4NUVFCQ==",
   "success": true,
   "projectFilePath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Crawler\\Crawler.csproj",
   "expectedPackageFiles": [
@@ -81,6 +81,7 @@
     "C:\\Users\\YK\\.nuget\\packages\\system.threading.threadpool\\4.3.0\\system.threading.threadpool.4.3.0.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\system.threading.timer\\4.3.0\\system.threading.timer.4.3.0.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\tomlyn\\0.16.2\\tomlyn.0.16.2.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\unitsnet\\5.1.0\\unitsnet.5.1.0.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\useragentgenerator\\1.22.807.1109\\useragentgenerator.1.22.807.1109.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\websocket4net\\0.15.2\\websocket4net.0.15.2.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\zu.chromedevtoolsclient\\0.5.6\\zu.chromedevtoolsclient.0.5.6.nupkg.sha512"

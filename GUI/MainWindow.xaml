@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="510" Width="480" MaxHeight="510" MaxWidth="480" MinHeight="510" MinWidth="480">
-    <Grid>
+        Title="MainWindow" Height="510" Width="840" MaxHeight="510" MaxWidth="840" MinHeight="510" MinWidth="840">
+    <Grid Margin="0,0,-290,0">
         <Label Content="比特浏览器 Api 链接" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="识别码" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top"/>
         <Label Content="922 Api IP 和端口" HorizontalAlignment="Left" Margin="145,60,0,0" VerticalAlignment="Top"/>
@@ -14,11 +14,11 @@
         <Label Content="比特浏览器窗口 Id" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top"/>
         <Button Content="应用" HorizontalAlignment="Left" Margin="15,133,0,0" VerticalAlignment="Top" Height="27" Width="55" Name="Apply" Click="Apply_Click"/>
         <Button Content="启动" HorizontalAlignment="Left" Margin="80,133,0,0" VerticalAlignment="Top" Height="27" Width="55" Name="Run" Click="Run_Click"/>
-        <CheckBox Name="ChangeIpChecked" IsChecked="True" Margin="345,90,-330,360"/>
+        <CheckBox Name="ChangeIpChecked" IsChecked="True" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="344,90,0,0" RenderTransformOrigin="-12.711,8.503"/>
         <TextBox Name="ApiLinkInput" HorizontalAlignment="Left" Margin="134,15,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="315"/>
         <TextBox Name="ProxyApiInput" HorizontalAlignment="Left" Margin="255,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="194"/>
         <TextBox Name="WindowIDInput" HorizontalAlignment="Left" Margin="134,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="315"/>
-        <TextBox Name="Debug" HorizontalAlignment="Left" Margin="20,170,0,0" TextWrapping="Wrap" Text="DebugInfo" VerticalAlignment="Top" Width="425" Height="275"/>
+        <TextBox Name="Debug" HorizontalAlignment="Left" Margin="20,170,0,0" TextWrapping="Wrap" Text="DebugInfo" VerticalAlignment="Top" Width="750" Height="275"/>
         <TextBox Name="Id" HorizontalAlignment="Left" Margin="60,65,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="86"/>
         <ProgressBar Name="ProgressBar"  HorizontalAlignment="Left" Height="15" Margin="15,110,0,0" VerticalAlignment="Top" Width="433"/>
         <Button Content="清空已完成记录" HorizontalAlignment="Left" Margin="330,133,0,0" VerticalAlignment="Top" Height="27" Width="115" x:Name="ClearFinished" Click="ClearFinished_Click"/>

@@ -6,10 +6,10 @@ using UserAgentGenerator;
 using OpenQA.Selenium.Chrome;
 using System.Security.Cryptography;
 using System.Reflection.Metadata;
-using InfoGen;
-using MissionHandler.Utils;
 using OpenQA.Selenium.Support.Extensions;
 using System.Xml.Linq;
+using Utils.String;
+using MissionHandler.MissionFactory.AbstractHandler;
 
 namespace MissionHandler.MissionFactory;
 
@@ -30,7 +30,7 @@ public class FlirtDating : AbstractMissionHandler
         this.info = info;
         return this;
     }
-    public async Task<IMissionHandler> RunAsync()
+    public override async Task<IMissionHandler> RunAsync()
     {
         await Task.Delay(8000);
         var allInput = MainDriver.FindElements(By.CssSelector(".form-input > input"));

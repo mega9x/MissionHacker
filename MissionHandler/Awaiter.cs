@@ -12,7 +12,7 @@ namespace MissionHandler
     {
         public static Task GetDelay()
         {
-            return Task.Delay(RandomNumberGenerator.GetInt32(Config.Instance.MissionHackerConfig!.General.MinWait, Config.Instance.MissionHackerConfig!.General.MaxWait));
+            return Task.Delay(RandomNumberGenerator.GetInt32(Config.Config.Instance.MissionHackerConfig!.General.MinWait, Config.Config.Instance.MissionHackerConfig!.General.MaxWait));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Security.Cryptography;
 using Crawler;
+using MissionHandler.MissionFactory.AbstractHandler;
 using Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.Extensions;
@@ -10,7 +11,7 @@ public class ExclusiveLandingPageBestDatingOfferRank : AbstractMissionHandler
 {
     public MailChrome MailChrome { get; set; }
     public IBrowser Browser { get; set; }
-    public MissionInfo info { get; set; }
+    public MissionInfo Info { get; set; }
     private IWebDriver MainDriver { get; set; }
     private IWebDriver MailDriver { get; set; }
     public IMissionHandler SetMailBrowser(MailChrome browser)
@@ -23,7 +24,7 @@ public class ExclusiveLandingPageBestDatingOfferRank : AbstractMissionHandler
         Browser = browser;
         return this;
     }
-    public async Task<IMissionHandler> RunAsync()
+    public override async Task<IMissionHandler> RunAsync()
     {
         await Task.Delay(500);
         MainDriver.SwitchTo().Window(MainDriver.WindowHandles.Last());
@@ -49,7 +50,7 @@ public class ExclusiveLandingPageBestDatingOfferRank : AbstractMissionHandler
     }
     public IMissionHandler SetInfo(MissionInfo info)
     {
-        this.info = info;
+        this.Info = info;
         return this;
     }
     private async Task<IMissionHandler> SelectionOne()
@@ -101,7 +102,7 @@ public class ExclusiveLandingPageBestDatingOfferRank : AbstractMissionHandler
     }
     private async Task<IMissionHandler> AsianFlirtsPageOne()
     {
-        MainDriver.FindElement(By.CssSelector("#signupForm > input[type=email]:nth-child(22)")).SendKeys(info.Mail.MailName);
+        MainDriver.FindElement(By.CssSelector("#signupForm > input[type=email]:nth-child(22)")).SendKeys(Info.Mail.MailName);
         await Awaiter.GetDelay();
         MainDriver.FindElement(By.Id("signUp")).Click();
         return this;

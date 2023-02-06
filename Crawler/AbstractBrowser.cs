@@ -41,7 +41,7 @@ public class AbstractBrowser : IBrowser
     }
     public virtual async Task<IBrowser> ChangeIp(string country)
     {
-        var uri = $"{Config.Instance.MissionHackerConfig.General!.ProxyApi}{Api.PROXY_API}".Replace("COUNTRY", country);
+        var uri = $"{Config.Config.Instance.MissionHackerConfig.General!.ProxyApi}{Api.PROXY_API}".Replace("COUNTRY", country);
         var client = new HttpClient();
         var response = await client.GetStringAsync(uri);
         return this;
@@ -170,10 +170,9 @@ public class AbstractBrowser : IBrowser
     public virtual async Task<IBrowser> RefreshIpData()
     {
         var winHandler = Driver.CurrentWindowHandle;
-        Driver.Manage().Cookies.DeleteAllCookies();
         Timeout = TimeSpan.FromSeconds(120);
         Driver.SwitchTo().NewWindow(WindowType.Tab);
-        Driver.Url = "http://ip-api.com/json";
+        Driver.Navigate().GoToUrl("http://ip-api.com/json");
         var output = Driver.FindElement(By.CssSelector("body > pre")).Text;
         IPData = JsonSerializer.Deserialize<IPData>(output);
         Driver.Close();
@@ -193,6 +192,7 @@ public class AbstractBrowser : IBrowser
     {
         _chromeOptions.Key.DebuggerAddress = RemoteUri;
         this.Driver = new ChromeDriver(_chromeOptions.Value, _chromeOptions.Key);
+        Driver.Manage().Cookies.DeleteAllCookies();
         Timeout = TimeSpan.FromSeconds(120);
     }
 

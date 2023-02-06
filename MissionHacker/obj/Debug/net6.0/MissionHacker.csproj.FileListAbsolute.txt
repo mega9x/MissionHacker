@@ -52,3 +52,5 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debu
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\ConstStr.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\DataLibs.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Tomlyn.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\SixLabors.ImageSharp.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\UnitsNet.dll

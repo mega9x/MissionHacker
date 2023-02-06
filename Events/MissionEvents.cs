@@ -8,7 +8,6 @@ namespace Events;
 public static class MissionEvents
 {
     public delegate void MissionDoneDelegate(int num);
-    
     /// <summary>
     /// 当任务结束后触发. 参数是当前任务在所有获取到的任务里的列表索引值.
     /// </summary>
@@ -17,6 +16,10 @@ public static class MissionEvents
     /// 抛出异常时触发.
     /// </summary>
     public static event EventHandler<ThrowEventArgs> ThrowExceptionEvent;
+    /// <summary>
+    /// 抛出不可恢复的时触发.
+    /// </summary>
+    public static event EventHandler<ThrowEventArgs> ThrowUnrecoverableExceptionEvent;
     /// <summary>
     /// 发送信息的事件. 仅用于接收额外的信息.
     /// </summary>
@@ -30,6 +33,15 @@ public static class MissionEvents
         MissionDoneEvent(num);
     }
 
+    public static void ThrowUnrecoverableException(object sender, Exception e, string simpleMessage)
+    {
+        ThrowUnrecoverableExceptionEvent(sender, new()
+        {
+            Exception = e,
+            FullMessage = e.ToString(),
+            SimpleMessage = simpleMessage,
+        });
+    }
     public static void ThrowException(object sender, Exception e, string simpleMessage)
     {
         ThrowExceptionEvent(sender, new()
@@ -39,8 +51,7 @@ public static class MissionEvents
             SimpleMessage = simpleMessage,
         });
     }
-    
-    
+
     public static void ThrowException(object sender, ThrowEventArgs args)
     {
         ThrowExceptionEvent(sender, args);

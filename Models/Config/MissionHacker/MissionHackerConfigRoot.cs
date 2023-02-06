@@ -11,5 +11,6 @@ namespace Models.Config.MissionHacker
         public General General { get; set; } = new();
         public MissionConfigModel MissionConfigModel { get; set; } = new();
         public PhotoApi PhotoApi { get; set; } = new();
+        public AiApi AiApi { get; set; } = new();
     }
 }

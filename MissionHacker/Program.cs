@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 using Crawler;
 using MissionHacker.ConfigHelper;
 using MissionHandler;
+using MissionHandler.Enums;
 using Models;
-using Models.Enums;
 using OpenQA.Selenium.Support.Extensions;
 
-var config = Config.Instance;
+var config = Config.Config.Instance;
 var missionLoader = new MissionLoader();
 await missionLoader.LoadMission();
 MailProvider.MailProvider mail = MailProvider.MailProvider.Instance;
@@ -43,7 +43,7 @@ try
             }
             if (l.Area != area)
             {
-                mainBrowser.ChangeIp(l.Area);
+                await mainBrowser.ChangeIp(l.Area);
                 area = l.Area;
             }
             Console.WriteLine(l.Keyword);
@@ -69,7 +69,7 @@ try
             var handler = Missions.AllMissionsKeywordSupported[l.Keyword];
             // 启动任务处理器
             await (await (await handler.SetBrowser(mainBrowser)).SetMailBrowser(mailBrowser)).SetInfo(info).RunAsync();
-            l.NextCode();
+            await l.NextCode();
         }
         mainBrowser.ChangeIp("US");
         (await mainBrowser.GetDriver()).Quit();

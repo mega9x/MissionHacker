@@ -1251,6 +1251,19 @@
           }
         }
       },
+      "UnitsNet/5.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/UnitsNet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/UnitsNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "UserAgentGenerator/1.22.807.1109": {
         "type": "package",
         "compile": {
@@ -1374,10 +1387,12 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "Chance.NET": "2.2.0",
           "ConstStr": "1.0.0",
           "DataLibs": "1.0.0",
           "Selenium.WebDriver": "4.7.0",
-          "SixLabors.ImageSharp": "2.1.3"
+          "SixLabors.ImageSharp": "2.1.3",
+          "UnitsNet": "5.1.0"
         },
         "compile": {
           "bin/placeholder/Models.dll": {}
@@ -1392,7 +1407,6 @@
         "dependencies": {
           "Chance.NET": "2.2.0",
           "Config": "1.0.0",
-          "Models": "1.0.0",
           "SixLabors.ImageSharp": "2.1.3",
           "Syllabore": "2.0.1"
         },
@@ -4321,6 +4335,23 @@
         "readme.md",
         "tomlyn.0.16.2.nupkg.sha512",
         "tomlyn.nuspec"
+      ]
+    },
+    "UnitsNet/5.1.0": {
+      "sha512": "LnhJ56+zBPrauImZj9zQO/orqW5SbtrLSZ/u3VZqaVd5LE76iZpqdhUnMI1mQ2PyduKeUHOLFSQQA7LP7Vhx3g==",
+      "type": "package",
+      "path": "unitsnet/5.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net7.0/UnitsNet.dll",
+        "lib/net7.0/UnitsNet.xml",
+        "lib/netstandard2.0/UnitsNet.dll",
+        "lib/netstandard2.0/UnitsNet.xml",
+        "logo-32.png",
+        "unitsnet.5.1.0.nupkg.sha512",
+        "unitsnet.nuspec"
       ]
     },
     "UserAgentGenerator/1.22.807.1109": {

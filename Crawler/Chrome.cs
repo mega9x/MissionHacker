@@ -18,7 +18,7 @@ public class Chrome : AbstractBrowser
         if (Driver is not null) return Driver;
         if (_remoteUri.Length <= 0)
         {
-            var result = await Api.OpenBrowser(Config.Instance.MissionHackerConfig.General.BitBrowserId, Config.Instance.MissionHackerConfig.General.BitApi);
+            var result = await Api.OpenBrowser(Config.Config.Instance.MissionHackerConfig.General.BitBrowserId, Config.Config.Instance.MissionHackerConfig.General.BitApi);
             _remoteUri = result.Data.Http;
         }
         RemoteUri = _remoteUri;

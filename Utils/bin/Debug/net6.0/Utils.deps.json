@@ -10,7 +10,7 @@
         "dependencies": {
           "Chance.NET": "2.2.0",
           "Config": "1.0.0",
-          "Models": "1.0.0",
+          "SixLabors.ImageSharp": "2.1.3",
           "Syllabore": "2.0.1"
         },
         "runtime": {
@@ -33,6 +33,7 @@
           }
         }
       },
+      "Microsoft.NETCore.Platforms/5.0.0": {},
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -52,6 +53,18 @@
           }
         }
       },
+      "SixLabors.ImageSharp/2.1.3": {
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "5.0.0",
+          "System.Text.Encoding.CodePages": "5.0.0"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.3.0"
+          }
+        }
+      },
       "Syllabore/2.0.1": {
         "dependencies": {
           "Archigen": "1.2.0",
@@ -64,12 +77,26 @@
           }
         }
       },
+      "System.Runtime.CompilerServices.Unsafe/5.0.0": {},
+      "System.Text.Encoding.CodePages/5.0.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "5.0.0"
+        }
+      },
       "System.Text.Json/4.7.2": {},
       "Tomlyn/0.16.2": {
         "runtime": {
           "lib/net6.0/Tomlyn.dll": {
             "assemblyVersion": "0.16.0.0",
             "fileVersion": "0.16.2.0"
+          }
+        }
+      },
+      "UnitsNet/5.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/UnitsNet.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
           }
         }
       },
@@ -98,9 +125,12 @@
       },
       "Models/1.0.0": {
         "dependencies": {
+          "Chance.NET": "2.2.0",
           "ConstStr": "1.0.0",
           "DataLibs": "1.0.0",
-          "Selenium.WebDriver": "4.7.0"
+          "Selenium.WebDriver": "4.7.0",
+          "SixLabors.ImageSharp": "2.1.3",
+          "UnitsNet": "5.1.0"
         },
         "runtime": {
           "Models.dll": {}
@@ -128,6 +158,13 @@
       "path": "chance.net/2.2.0",
       "hashPath": "chance.net.2.2.0.nupkg.sha512"
     },
+    "Microsoft.NETCore.Platforms/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
+      "path": "microsoft.netcore.platforms/5.0.0",
+      "hashPath": "microsoft.netcore.platforms.5.0.0.nupkg.sha512"
+    },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
@@ -142,12 +179,33 @@
       "path": "selenium.webdriver/4.7.0",
       "hashPath": "selenium.webdriver.4.7.0.nupkg.sha512"
     },
+    "SixLabors.ImageSharp/2.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8yonNRWX3vUE9k29ta0Hbfa0AEc0hbDjSH/nZ3vOTJEXmY6hLnGsjDKoz96Z+AgOsrdkAu6PdL/Ebaf70aitzw==",
+      "path": "sixlabors.imagesharp/2.1.3",
+      "hashPath": "sixlabors.imagesharp.2.1.3.nupkg.sha512"
+    },
     "Syllabore/2.0.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-BSmye9iSUbZhzagJnmT43zoQGc/pS6hpOPJoefkamFOnj/yxUvO96ijvbADc09vjddXL7t26e51jys1D3hUamw==",
       "path": "syllabore/2.0.1",
       "hashPath": "syllabore.2.0.1.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZD9TMpsmYJLrxbbmdvhwt9YEgG5WntEnZ/d1eH8JBX9LBp+Ju8BSBhUGbZMNVHHomWo2KVImJhTDl2hIgw/6MA==",
+      "path": "system.runtime.compilerservices.unsafe/5.0.0",
+      "hashPath": "system.runtime.compilerservices.unsafe.5.0.0.nupkg.sha512"
+    },
+    "System.Text.Encoding.CodePages/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NyscU59xX6Uo91qvhOs2Ccho3AR2TnZPomo1Z0K6YpyztBPM/A5VbkzOO19sy3A3i1TtEnTxA7bCe3Us+r5MWg==",
+      "path": "system.text.encoding.codepages/5.0.0",
+      "hashPath": "system.text.encoding.codepages.5.0.0.nupkg.sha512"
     },
     "System.Text.Json/4.7.2": {
       "type": "package",
@@ -162,6 +220,13 @@
       "sha512": "sha512-NVvOlecYWwhqQdE461UGHUeJ1t2DtGXU+L00LgtBTgWA16bUmMhUIRaCpSkRX5HqAeid/KlXmdH7Sul0mr6HJA==",
       "path": "tomlyn/0.16.2",
       "hashPath": "tomlyn.0.16.2.nupkg.sha512"
+    },
+    "UnitsNet/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LnhJ56+zBPrauImZj9zQO/orqW5SbtrLSZ/u3VZqaVd5LE76iZpqdhUnMI1mQ2PyduKeUHOLFSQQA7LP7Vhx3g==",
+      "path": "unitsnet/5.1.0",
+      "hashPath": "unitsnet.5.1.0.nupkg.sha512"
     },
     "Config/1.0.0": {
       "type": "project",

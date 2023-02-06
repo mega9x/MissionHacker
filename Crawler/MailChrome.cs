@@ -27,9 +27,9 @@ public class MailChrome : AbstractBrowser
     public Mail Mail { get; set; }
     public MailChrome(): base()
     {
-        if (Config.Instance.MissionHackerConfig.General.Proxy.Length > 0)
+        if (Config.Config.Instance.MissionHackerConfig.General.Proxy.Length > 0)
         {
-            _chromeOptions.Key.AddArgument($"--proxy-server=socks5://{Config.Instance.MissionHackerConfig.General.Proxy}");
+            _chromeOptions.Key.AddArgument($"--proxy-server=socks5://{Config.Config.Instance.MissionHackerConfig.General.Proxy}");
         }
     }
     public MailChrome(Mail mail): this()
@@ -39,9 +39,7 @@ public class MailChrome : AbstractBrowser
     public override async Task<IWebDriver> GetDriver()
     {
         if (Driver is not null) return this.Driver;
-
         await Login();
-        RefreshIpData();
         return this.Driver;
     }
     public async Task<MailChrome> Login()
@@ -66,7 +64,7 @@ public class MailChrome : AbstractBrowser
         {
             // ignore
         }
-        await Task.Delay(5000);
+        await Task.Delay(1000);
         return this;
     }
     public async Task<MailChrome> Quit()
@@ -122,9 +120,9 @@ public class MailChrome : AbstractBrowser
                 }
                 selected[0].Click();
             }
-            catch(Exception e)
+            catch
             {
-
+                // ignore
             }
             break;
         }

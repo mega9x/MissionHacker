@@ -6,9 +6,9 @@ using ConstStr;
 using DataLibs;
 using MissionHacker.ConfigHelper;
 using MissionHacker.ConfigHelper.Logger;
+using MissionHandler.Enums;
 using Models;
 using Models.Config.MissionHacker;
-using Models.Enums;
 using Models.Log;
 
 namespace MissionHandler;
@@ -54,7 +54,7 @@ public class MissionLoader
                 continue;
             }
             // 如果识别码匹配
-            if ((l.MId != Config.Instance.MissionHackerConfig.General.Id) && _options.MatchMId)
+            if ((l.MId != Config.Config.Instance.MissionHackerConfig.General.Id) && _options.MatchMId)
             {
                 continue;
             }

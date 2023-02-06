@@ -1,7 +1,13 @@
-﻿using System.Security.Cryptography;
+﻿using System;
+using System.Net.Http.Json;
+using System.Security.Cryptography;
+using ChanceNET;
+using ConstStr;
 using Models.Enum;
+using Models.Photo;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
+using UnitsNet;
 
 namespace Models.Data;
 
@@ -13,11 +19,28 @@ public class SinglePerson
     public int Birthmonth { get; set; }
     public int Birthday { get; set; }
     public Sex Sex { get; set; } = RandomNumberGenerator.GetInt32(0, 2) == 0 ? Sex.Male : Sex.Female;
-    public int Tall { get; set; }
+    public Length Tall { get; set; }
     public string Nickname { get; set; }
     public string Profession { get; set; }
     public int Age => DateTime.Now.Year - Birthyear;
     public List<string>? Photos { get; set; } = new();
+    public PhotoRequest PhotoRequest => new()
+    {
+        Age = this.Age switch
+        {
+            >= 60 => AgeRange.Old,
+            >= 30 and <= 45 => AgeRange.MidAged,
+            _ => AgeRange.Young,
+        },
+        Gender = this.Sex switch
+        {
+            Sex.Female => ConstStr.Gender.Female,
+            Sex.Male => ConstStr.Gender.Male,
+            _ => throw new ArgumentOutOfRangeException()
+        },
+        Name = "",
+        Num = 6,
+    };
 
     public async Task<FileStream> SaveAsJpg(string filename, int index)
     {
@@ -40,5 +63,7 @@ public class SinglePerson
         {
             Console.WriteLine(e.ToString());
         }
+        return File.OpenRead(filename);
     }
+
 }

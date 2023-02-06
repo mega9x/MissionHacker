@@ -1,13 +1,9 @@
-using System.Text;
 using System.Security.Cryptography;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 using ChanceNET;
 using Syllabore;
 
-namespace OutlookHacker.Main.MailName
+namespace Utils.InfoGen
 {
     public class RandomGen
     {

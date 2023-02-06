@@ -13,4 +13,4 @@ max_times = 0
 min_times = 0
 [photo_api]
 base = "http://photo.api.ykstudio.pro"
-get_photo_endpoint = ""
+get_photo_endpoint = "/photo/getphotogroup"

@@ -1,6 +1,7 @@
 ﻿using MissionHandler.MissionFactory;
+using MissionHandler.MissionFactory.AutoSelectMission;
 
-namespace Models.Enums;
+namespace MissionHandler.Enums;
 
 public static class Missions
 {
@@ -8,12 +9,13 @@ public static class Missions
     {
         {"elitesingles", new Elitesingles()},
         {"flirt-dating", new FlirtDating()},
-        {"christianmingle", new Christianmingle()}
+        {"christianmingle", new Christianmingle()},
+        {"eharmony", new Eharmony()},
         // "seniorsexmatch",
         // "hookups - soi", 
         // "searchingforsingles - doi",
         // "sweepsex - soi",
-        // "eharmony.com",
+        // "Eharmony.com",
         // "battle arena",
         // "your smartlink",
         // "top moving quote"

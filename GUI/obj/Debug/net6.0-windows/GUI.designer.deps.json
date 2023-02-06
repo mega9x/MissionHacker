@@ -991,6 +991,14 @@
           }
         }
       },
+      "UnitsNet/5.1.0": {
+        "runtime": {
+          "lib/netstandard2.0/UnitsNet.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        }
+      },
       "UserAgentGenerator/1.22.807.1109": {
         "runtime": {
           "lib/netstandard2.0/UserAgentGenerator.dll": {
@@ -1569,6 +1577,13 @@
       "sha512": "sha512-NVvOlecYWwhqQdE461UGHUeJ1t2DtGXU+L00LgtBTgWA16bUmMhUIRaCpSkRX5HqAeid/KlXmdH7Sul0mr6HJA==",
       "path": "tomlyn/0.16.2",
       "hashPath": "tomlyn.0.16.2.nupkg.sha512"
+    },
+    "UnitsNet/5.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LnhJ56+zBPrauImZj9zQO/orqW5SbtrLSZ/u3VZqaVd5LE76iZpqdhUnMI1mQ2PyduKeUHOLFSQQA7LP7Vhx3g==",
+      "path": "unitsnet/5.1.0",
+      "hashPath": "unitsnet.5.1.0.nupkg.sha512"
     },
     "UserAgentGenerator/1.22.807.1109": {
       "type": "package",

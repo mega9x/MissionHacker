@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Chance.NET/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp2.0/Chance.NET.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp2.0/Chance.NET.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
@@ -91,6 +104,19 @@
           }
         }
       },
+      "UnitsNet/5.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/UnitsNet.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/UnitsNet.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "ConstStr/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -117,6 +143,29 @@
     }
   },
   "libraries": {
+    "Chance.NET/2.2.0": {
+      "sha512": "U2vM9/nKCfyE8aVI9w8iPfK1T22jf1pPF2az7Bmi/43APs7u16VLiGpG8o7WMvtX8nUgEhiVNWMdqeIT+RgWGQ==",
+      "type": "package",
+      "path": "chance.net/2.2.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "chance.net.2.2.0.nupkg.sha512",
+        "chance.net.nuspec",
+        "lib/net45/Chance.NET.dll",
+        "lib/net45/Chance.NET.xml",
+        "lib/net46/Chance.NET.dll",
+        "lib/net46/Chance.NET.xml",
+        "lib/net47/Chance.NET.dll",
+        "lib/net47/Chance.NET.xml",
+        "lib/netcoreapp2.0/Chance.NET.dll",
+        "lib/netcoreapp2.0/Chance.NET.xml",
+        "lib/netstandard1.6/Chance.NET.dll",
+        "lib/netstandard1.6/Chance.NET.xml",
+        "lib/netstandard2.0/Chance.NET.dll",
+        "lib/netstandard2.0/Chance.NET.xml"
+      ]
+    },
     "Microsoft.NETCore.Platforms/5.0.0": {
       "sha512": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ==",
       "type": "package",
@@ -281,6 +330,23 @@
         "version.txt"
       ]
     },
+    "UnitsNet/5.1.0": {
+      "sha512": "LnhJ56+zBPrauImZj9zQO/orqW5SbtrLSZ/u3VZqaVd5LE76iZpqdhUnMI1mQ2PyduKeUHOLFSQQA7LP7Vhx3g==",
+      "type": "package",
+      "path": "unitsnet/5.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net7.0/UnitsNet.dll",
+        "lib/net7.0/UnitsNet.xml",
+        "lib/netstandard2.0/UnitsNet.dll",
+        "lib/netstandard2.0/UnitsNet.xml",
+        "logo-32.png",
+        "unitsnet.5.1.0.nupkg.sha512",
+        "unitsnet.nuspec"
+      ]
+    },
     "ConstStr/1.0.0": {
       "type": "project",
       "path": "../ConstStr/ConstStr.csproj",
@@ -294,10 +360,12 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Chance.NET >= 2.2.0",
       "ConstStr >= 1.0.0",
       "DataLibs >= 1.0.0",
       "Selenium.WebDriver >= 4.7.0",
-      "SixLabors.ImageSharp >= 2.1.3"
+      "SixLabors.ImageSharp >= 2.1.3",
+      "UnitsNet >= 5.1.0"
     ]
   },
   "packageFolders": {
@@ -352,6 +420,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Chance.NET": {
+            "target": "Package",
+            "version": "[2.2.0, )"
+          },
           "Selenium.WebDriver": {
             "target": "Package",
             "version": "[4.7.0, )"
@@ -359,6 +431,10 @@
           "SixLabors.ImageSharp": {
             "target": "Package",
             "version": "[2.1.3, )"
+          },
+          "UnitsNet": {
+            "target": "Package",
+            "version": "[5.1.0, )"
           }
         },
         "imports": [

@@ -1,11 +1,11 @@
 ﻿using Crawler;
 using MissionHacker.ConfigHelper;
 using MissionHandler;
-using Models.Enums;
 using Models;
 using Events;
 using Events.EventArgs;
 using MissionHacker.ConfigHelper.Logger;
+using MissionHandler.Enums;
 
 
 namespace MissionHacker
@@ -20,7 +20,7 @@ namespace MissionHacker
         private MailChrome _mailBrowser;
         private readonly IBrowser _mainBrowser = new Chrome();
         public bool CanChangeIp = true;
-        public Config Config { get; private set; } = Config.Instance;
+        public Config.Config Config { get; private set; } = global::Config.Config.Instance;
         public MissionLoader MissionLoader { get; private set; } = new MissionLoader();
         public MailProvider.MailProvider Mail { get; private set; } = MailProvider.MailProvider.Instance;
         public async Task LoadMission()
@@ -33,7 +33,7 @@ namespace MissionHacker
         }
         public async Task Run()
         {
-            _ = Config.Instance;
+            _ = global::Config.Config.Instance;
             _mailBrowser = new MailChrome();
             if (MissionLoader.MissionList.Count <= 0)
             {
@@ -82,7 +82,7 @@ namespace MissionHacker
                     {
                         if (CanChangeIp)
                         {
-                            _mainBrowser.ChangeIp(l.Area);
+                            await _mainBrowser.ChangeIp(l.Area);
                         }
                         area = l.Area;
                         first = false;
@@ -109,7 +109,7 @@ namespace MissionHacker
                         await (await handler
                                 .SetBrowser(_mainBrowser))
                             .SetMailBrowser(_mailBrowser);
-                        handler.Init();
+                        await handler.Init();
                         await handler.RunAsync();
                         await MissionLogger.Instance.Success(code.Code);
                     }
@@ -122,9 +122,9 @@ namespace MissionHacker
                     {
                         _progressBarNum++;
                         MissionEvents.SetMissionDoneNum(_progressBarNum);
-                        l.NextCode();
+                        await l.NextCode();
                         Mail.Record(l.Keyword);
-                        _mailBrowser.Quit();
+                        await _mailBrowser.Quit();
                     }
                 }
                 _progressBarNum = 0;

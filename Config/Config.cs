@@ -1,14 +1,13 @@
 ﻿using System.Text.Json;
 using ConstStr;
 using Models.Config.MissionHacker;
-using Models.Data;
 using Tomlyn;
 
-namespace MissionHacker.ConfigHelper;
+namespace Config;
 
 public class Config
 {
-    public MissionHackerConfigRoot? MissionHackerConfig { get; private set; }
+    public MissionHackerConfigRoot? MissionHackerConfig { get; }
     public static readonly Config Instance = new Lazy<Config>(() => new Config()).Value;
     private Config()
     {
