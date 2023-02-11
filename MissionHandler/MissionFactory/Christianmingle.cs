@@ -1,4 +1,5 @@
 ﻿using System.Security.Cryptography;
+using DataLibs.InfoGen;
 using MissionHandler.MissionFactory.AbstractHandler;
 using Models.Data;
 using Models.Enum;
@@ -12,8 +13,8 @@ public class Christianmingle: AbstractMissionHandler
     public SinglePerson Person { get; set; }
     public override async Task<IMissionHandler> RunAsync()
     {
-        Person = await Utils.InfoGen.PersonFactory.GenPerson();
-        var photoFile = await Person.GetPhoto();
+        Person = await PersonFactory.GenPerson();
+        var photoFile = await GetRandomPhoto();
         Browser.Timeout = TimeSpan.FromSeconds(60);
         Browser.ClickByCss("[class='btn btn-primary btn-block']");
         await Wait(1000);

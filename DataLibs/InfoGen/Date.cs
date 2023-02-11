@@ -1,6 +1,6 @@
 ﻿using ChanceNET;
 
-namespace MissionHandler.InfoGen;
+namespace DataLibs.InfoGen;
 
 public class Date
 {

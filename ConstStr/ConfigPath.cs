@@ -6,6 +6,7 @@ public class ConfigPath
     public const string CONFIG_ROOT = "./配置";
     public const string PHOTO_ROOT = "./图片";
     public const string DATA_ROOT = "./data";
+    public const string Tmp = "./tmp";
     public const string LOG_ROOT = "./日志";
     #endregion
     #region Config
@@ -21,7 +22,28 @@ public class ConfigPath
     #region log
     public const string HANDLED_MISSION_LOG = $"{LOG_ROOT}/日志date.txt";
     #endregion
-    #region Data
+    #region AddressData
     public const string US_ADDRESS_DATA_PATH = $"{DATA_ROOT}/usaddress.json";
+    #endregion
+    #region MovieData
+    public const string NetflixDbPath = $"{DATA_ROOT}/movies/netfilx.csv";
+    public const string TmdbPath = $"{DATA_ROOT}/movies/tmdb.csv";
+    public const string AnimePath = $"{DATA_ROOT}/movies/anime.csv";
+    #endregion
+    #region MovieGenresData
+    public const string MovieTvGenresPath = $"{DATA_ROOT}/movies/movie_tv_genres.csv";
+    public const string AnimeGenresPath = $"{DATA_ROOT}/movies/tmdb.csv";
+    #endregion
+    #region MovieVideoSites
+    public const string MovieSitePath = $"{DATA_ROOT}/movies/websites.txt";
+    #endregion
+    #region BookData
+    public const string BooksPath = $"{DATA_ROOT}/books/books.csv";
+    #endregion
+    #region BookGenresData
+    public const string BookGenresPath = $"{DATA_ROOT}/books/book_genres.txt";
+    #endregion
+    #region BookArtists
+    public const string BookArtistsPath = $"{DATA_ROOT}/books/book_artists.txt";
     #endregion
 }

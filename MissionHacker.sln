@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sandbox", "Sandbox\Sandbox.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HqGpt", "HqGpt\HqGpt.csproj", "{4319F3FC-A591-4516-8437-7113F1038FDB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumSandbox", "SeleniumSandbox\SeleniumSandbox.csproj", "{E784B6E6-B1AE-4545-AF35-7929D55C4B95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,10 @@ Global
 		{4319F3FC-A591-4516-8437-7113F1038FDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4319F3FC-A591-4516-8437-7113F1038FDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4319F3FC-A591-4516-8437-7113F1038FDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E784B6E6-B1AE-4545-AF35-7929D55C4B95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E784B6E6-B1AE-4545-AF35-7929D55C4B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E784B6E6-B1AE-4545-AF35-7929D55C4B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E784B6E6-B1AE-4545-AF35-7929D55C4B95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

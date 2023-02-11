@@ -7,7 +7,18 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Config\Config.csproj" />
       <ProjectReference Include="..\ConstStr\ConstStr.csproj" />
+      <ProjectReference Include="..\Events\Events.csproj" />
+      <ProjectReference Include="..\HqGpt\HqGpt.csproj" />
+      <ProjectReference Include="..\Utils\Utils.csproj" />
+      <ProjectReference Include="..\Utils\Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Chance.NET" Version="2.2.0" />
+      <PackageReference Include="Syllabore" Version="2.0.1" />
+      <PackageReference Include="UnitsNet" Version="5.1.0" />
     </ItemGroup>
 
 </Project>

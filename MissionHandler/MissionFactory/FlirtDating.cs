@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Reflection.Metadata;
 using OpenQA.Selenium.Support.Extensions;
 using System.Xml.Linq;
+using DataLibs.InfoGen;
 using Utils.String;
 using MissionHandler.MissionFactory.AbstractHandler;
 

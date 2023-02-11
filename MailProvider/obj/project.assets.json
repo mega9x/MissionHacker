@@ -15,6 +15,19 @@
           }
         }
       },
+      "CsvHelper/30.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.NETCore.Platforms/5.0.0": {
         "type": "package",
         "compile": {
@@ -127,17 +140,24 @@
           "bin/placeholder/ConstStr.dll": {}
         }
       },
-      "DataLibs/1.0.0": {
+      "Events/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "ConstStr": "1.0.0"
-        },
         "compile": {
-          "bin/placeholder/DataLibs.dll": {}
+          "bin/placeholder/Events.dll": {}
         },
         "runtime": {
-          "bin/placeholder/DataLibs.dll": {}
+          "bin/placeholder/Events.dll": {}
+        }
+      },
+      "HqGpt/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/HqGpt.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HqGpt.dll": {}
         }
       },
       "Models/1.0.0": {
@@ -146,7 +166,9 @@
         "dependencies": {
           "Chance.NET": "2.2.0",
           "ConstStr": "1.0.0",
-          "DataLibs": "1.0.0",
+          "CsvHelper": "30.0.1",
+          "Events": "1.0.0",
+          "HqGpt": "1.0.0",
           "Selenium.WebDriver": "4.7.0",
           "SixLabors.ImageSharp": "2.1.3",
           "UnitsNet": "5.1.0"
@@ -182,6 +204,30 @@
         "lib/netstandard1.6/Chance.NET.xml",
         "lib/netstandard2.0/Chance.NET.dll",
         "lib/netstandard2.0/Chance.NET.xml"
+      ]
+    },
+    "CsvHelper/30.0.1": {
+      "sha512": "rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg==",
+      "type": "package",
+      "path": "csvhelper/30.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.30.0.1.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net5.0/CsvHelper.dll",
+        "lib/net5.0/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
     "Microsoft.NETCore.Platforms/5.0.0": {
@@ -370,10 +416,15 @@
       "path": "../ConstStr/ConstStr.csproj",
       "msbuildProject": "../ConstStr/ConstStr.csproj"
     },
-    "DataLibs/1.0.0": {
+    "Events/1.0.0": {
       "type": "project",
-      "path": "../DataLibs/DataLibs.csproj",
-      "msbuildProject": "../DataLibs/DataLibs.csproj"
+      "path": "../Events/Events.csproj",
+      "msbuildProject": "../Events/Events.csproj"
+    },
+    "HqGpt/1.0.0": {
+      "type": "project",
+      "path": "../HqGpt/HqGpt.csproj",
+      "msbuildProject": "../HqGpt/HqGpt.csproj"
     },
     "Models/1.0.0": {
       "type": "project",

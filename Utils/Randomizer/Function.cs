@@ -11,6 +11,17 @@ public class Function
             action();
         }
     }
+    public static async Task ChanceInvokeOrDefault(Action action, Action defaultAction, int chance)
+    {
+        if (RandomNumberGenerator.GetInt32(0, chance) == 1)
+        {
+            action();
+        }
+        else
+        {
+            defaultAction();
+        }
+    }
     public static async Task ChanceInvoke(Action action)
     {
         if (RandomNumberGenerator.GetInt32(0, 2) == 1)

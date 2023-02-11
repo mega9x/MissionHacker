@@ -18,3 +18,5 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\Models\bin\Debug\net6.
 E:\workspace\projects\project\MissionHacker\MissionHacker\Models\bin\Debug\net6.0\ConstStr.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\Models\bin\Debug\net6.0\DataLibs.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\Models\obj\Debug\net6.0\Models.csproj.CopyComplete
+E:\workspace\projects\project\MissionHacker\MissionHacker\Models\bin\Debug\net6.0\HqGpt.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\Models\bin\Debug\net6.0\HqGpt.pdb

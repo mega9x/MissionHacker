@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using ConstStr;
-using DataLibs;
+using Events;
 using OpenQA.Selenium.DevTools.V85.DOMDebugger;
 
 namespace Models;
@@ -38,8 +38,11 @@ public class MissionModel
         if (CodesIndex + 1 >= Codes.Count)
         {
             Time++;
-            Libs.Instance.AddTimes(Keyword, 1);
-            await Libs.Instance.Save();
+            MissionEvents.NextCode(this, new()
+            {
+                Code = Codes[CodesIndex].Code,
+                Keyword = Keyword,
+            });
             if (Time > MaxTimes)
             {
                 _lock = true;

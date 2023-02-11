@@ -1,12 +1,6 @@
 ﻿using ChanceNET;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Channels;
-using System.Threading.Tasks;
 
-namespace Utils.String
+namespace DataLibs.InfoGen
 {
     public class StrGen
     {

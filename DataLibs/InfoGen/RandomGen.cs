@@ -1,7 +1,11 @@
 using System.Security.Cryptography;
 using System.Text;
 using ChanceNET;
+using DataLibs.Data.Movies;
+using DataLibs.Data.Movies.Genres;
+using Models.Data.MoviesAndTV;
 using Syllabore;
+using Utils.Randomizer;
 
 namespace Utils.InfoGen
 {
@@ -150,5 +154,6 @@ namespace Utils.InfoGen
             _stringBuilder.Append(str);
             return this;
         }
+
     }
 }

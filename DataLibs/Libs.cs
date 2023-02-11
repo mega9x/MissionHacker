@@ -1,4 +1,5 @@
 ﻿using ConstStr;
+using Events;
 
 namespace DataLibs;
 
@@ -11,6 +12,9 @@ public class Libs
     
     public Libs()
     {
+        MissionEvents.NextCodeEvent += (obj, e) => {
+            AddTimes(e.Keyword, 1);
+        };
         if (!File.Exists(BlockListPath))
         {
             File.Create(BlockListPath).Close();

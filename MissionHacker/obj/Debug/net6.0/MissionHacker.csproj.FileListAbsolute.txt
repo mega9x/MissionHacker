@@ -54,3 +54,5 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debu
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\Tomlyn.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\SixLabors.ImageSharp.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\UnitsNet.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\HqGpt.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHacker\bin\Debug\net6.0\HqGpt.pdb

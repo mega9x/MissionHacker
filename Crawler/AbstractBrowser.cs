@@ -1,4 +1,5 @@
-﻿using MissionHacker.ConfigHelper;
+﻿using System.Security.Cryptography;
+using MissionHacker.ConfigHelper;
 using Models.Data;
 using System.Text;
 using System.Text.Json;
@@ -113,6 +114,24 @@ public class AbstractBrowser : IBrowser
         Driver.SwitchTo().Frame(Driver.FindElement(By.CssSelector(iframeCss)));
         ClickByCss(eleCss);
         Driver.SwitchTo().DefaultContent();
+        return this;
+    }
+    public IBrowser SelectRandomlyByCss(string css)
+    {
+        var ele = new SelectElement(Driver.FindElement(By.CssSelector(css)));
+        ele.SelectByIndex(RandomNumberGenerator.GetInt32(0, ele.Options.Count));
+        return this;
+    }
+    public IBrowser SelectValueByCss(string css, string value)
+    {
+        var ele = new SelectElement(Driver.FindElement(By.CssSelector(css)));
+        ele.SelectByValue(value);
+        return this;
+    }
+    public IBrowser SelectTextByCss(string css, string text)
+    {
+        var ele = new SelectElement(Driver.FindElement(By.CssSelector(css)));
+        ele.SelectByText(text);
         return this;
     }
     public IBrowser Clear()

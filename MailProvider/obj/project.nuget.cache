@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "fnPGmk7n4+VPUxOZxN87C7204DmrZlP+964M7Noo9BF1AsNrcFQPk1w0s7doy2LvchbKSmeHgm5CJrc0/NpxiQ==",
+  "dgSpecHash": "AN8lmNjUpieN9vtmKoxhXD8vKKPPD8cQvIT1uCO1QANvMG7mQa454SvEBY/zAJO+oqnapwp7Zp5cbNq/GigZ+Q==",
   "success": true,
   "projectFilePath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MailProvider\\MailProvider.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YK\\.nuget\\packages\\chance.net\\2.2.0\\chance.net.2.2.0.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\selenium.webdriver\\4.7.0\\selenium.webdriver.4.7.0.nupkg.sha512",

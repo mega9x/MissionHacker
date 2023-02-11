@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "hwvK0DQD3jvgPPKrLnqfmy1ihYX3vXtCURk0fpQCVCk=",
+  "Hash": "RUiNXigF2aQ6easNx4LDe7QN9hvd7VOs75x8L3hOJTI=",
   "Source": "Maui",
   "BasePath": "/",
   "Mode": "Root",
@@ -100,6 +100,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Maui\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "SourceId": "Maui",
+      "SourceType": "Discovered",
+      "ContentRoot": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Maui\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/open-iconic/FONT-LICENSE",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Maui\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
@@ -202,23 +219,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
-    },
-    {
-      "Identity": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Maui\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
-      "SourceId": "Maui",
-      "SourceType": "Discovered",
-      "ContentRoot": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Maui\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "css/open-iconic/FONT-LICENSE",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
       "Identity": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Maui\\wwwroot\\css\\open-iconic\\ICON-LICENSE",

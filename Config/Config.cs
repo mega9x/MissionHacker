@@ -57,6 +57,7 @@ public class Config
         {
             Directory.CreateDirectory(ConfigPath.LOG_ROOT);
         }
+        Directory.CreateDirectory(ConfigPath.Tmp);
         MissionHackerConfig = Toml.ToModel<MissionHackerConfigRoot>(File.ReadAllText(ConfigPath.ConfigGeneral));
     }
     public Config SaveBitBrowserConfig(string link, string id)

@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <PackageReference Include="Chance.NET" Version="2.2.0" />
+      <PackageReference Include="CsvHelper" Version="30.0.1" />
       <PackageReference Include="Selenium.WebDriver" Version="4.7.0" />
       <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
       <PackageReference Include="UnitsNet" Version="5.1.0" />
@@ -15,7 +16,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\ConstStr\ConstStr.csproj" />
-      <ProjectReference Include="..\DataLibs\DataLibs.csproj" />
+      <ProjectReference Include="..\Events\Events.csproj" />
+      <ProjectReference Include="..\HqGpt\HqGpt.csproj" />
     </ItemGroup>
 
 </Project>

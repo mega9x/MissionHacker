@@ -3,6 +3,7 @@ using System.Net.Http.Json;
 using System.Security.Cryptography;
 using ChanceNET;
 using ConstStr;
+using HqGpt;
 using Models.Enum;
 using Models.Photo;
 using SixLabors.ImageSharp;
@@ -24,6 +25,10 @@ public class SinglePerson
     public string Profession { get; set; }
     public int Age => DateTime.Now.Year - Birthyear;
     public List<string>? Photos { get; set; } = new();
+    public Gpt TextGenerator { get; set; }
+    public string FavoriteBooks { get; set; }
+    public string FavoriteMovies { get; set; }
+    private string GenNewPhotoPath => $"{Firstname}_${Lastname}_{Sex}_{Guid.NewGuid()}.jpg";
     public PhotoRequest PhotoRequest => new()
     {
         Age = this.Age switch
@@ -42,16 +47,30 @@ public class SinglePerson
         Num = 6,
     };
 
-    public async Task<FileStream> SaveAsJpg(string filename, int index)
+    public async Task<FileInfo> SaveAsJpg(string dirname, int index)
     {
         var href = Photos?[index];
+        return await SaveAsJpgFile(Path.Combine(dirname, GenNewPhotoPath), href);
+    }
+    public async Task<List<FileInfo>> SaveAllAsJpg(string dirname)
+    {
+        Directory.CreateDirectory(dirname);
+        var jpgFileInfos = new List<FileInfo>();
+        foreach (var photo in Photos)
+        {
+            jpgFileInfos.Add(await SaveAsJpgFile(Path.Combine(dirname, GenNewPhotoPath), photo));
+        }
+        return jpgFileInfos;
+    }
+    private async Task<FileInfo> SaveAsJpgFile(string filename, string href)
+    {
         try
         {
             try
             {
-                var base64 = href.Replace("data:image/png;base64,", "");
+                var base64 = href.Replace("data:image/jpeg;base64,", "");
                 using var image = await Image.LoadAsync(new MemoryStream(Convert.FromBase64String(base64)));
-                image.Mutate(x => x.Resize(image.Width + 200, image.Height + 200));
+                // image.Mutate(x => x.Resize(image.Width + 200, image.Height + 200));
                 await image.SaveAsJpegAsync(filename);
             }
             catch (Exception exception)
@@ -63,7 +82,6 @@ public class SinglePerson
         {
             Console.WriteLine(e.ToString());
         }
-        return File.OpenRead(filename);
+        return new(filename);
     }
-
 }

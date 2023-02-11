@@ -4,16 +4,11 @@
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <RootNamespace>Utils</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Chance.NET" Version="2.2.0" />
+      <PackageReference Include="CsvHelper" Version="30.0.1" />
       <PackageReference Include="SixLabors.ImageSharp" Version="2.1.3" />
-      <PackageReference Include="Syllabore" Version="2.0.1" />
     </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\Config\Config.csproj" />
-    </ItemGroup>
-
 </Project>

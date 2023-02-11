@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "JtqwKNzPZDwgkW6JjmNw/tvwhC20Fs4Q6Ss+Pg+G2NbAMygrD5HRCeoi9smcyJ0zLKCVsirD551XWeC0+gh+mQ==",
-  "success": true,
+  "dgSpecHash": "uIKvKB/rUR4G97KWZMpT5FKP3U7eNLLyA/FffGi8UBd4D3GEPOQ17NAttZacSKvFX1pd7iVlPW/LLdaRndmJvw==",
+  "success": false,
   "projectFilePath": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\MissionHacker\\MissionHacker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\YK\\.nuget\\packages\\archigen\\1.2.0\\archigen.1.2.0.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\asyncchromedriver\\0.5.8\\asyncchromedriver.0.5.8.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\asyncwebdriver\\1.4.6\\asyncwebdriver.1.4.6.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\chance.net\\2.2.0\\chance.net.2.2.0.nupkg.sha512",
+    "C:\\Users\\YK\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\iasyncwebbrowserclient\\0.2.6\\iasyncwebbrowserclient.0.2.6.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.0\\microsoft.netcore.platforms.5.0.0.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
@@ -86,5 +87,15 @@
     "C:\\Users\\YK\\.nuget\\packages\\websocket4net\\0.15.2\\websocket4net.0.15.2.nupkg.sha512",
     "C:\\Users\\YK\\.nuget\\packages\\zu.chromedevtoolsclient\\0.5.6\\zu.chromedevtoolsclient.0.5.6.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Unable to find project 'E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Utils\\Models.csproj'. Check that the project reference is valid and that the project file exists.",
+      "libraryId": "E:\\workspace\\projects\\project\\MissionHacker\\MissionHacker\\Utils\\Models.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

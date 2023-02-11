@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\DataLibs\DataLibs.csproj" />
       <ProjectReference Include="..\Events\Events.csproj" />
       <ProjectReference Include="..\Models\Models.csproj" />
       <ProjectReference Include="..\Crawler\Crawler.csproj" />

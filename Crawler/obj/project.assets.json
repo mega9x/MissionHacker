@@ -2,15 +2,6 @@
   "version": 3,
   "targets": {
     "net6.0": {
-      "Archigen/1.2.0": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/Archigen.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Archigen.dll": {}
-        }
-      },
       "AsyncChromeDriver/0.5.8": {
         "type": "package",
         "dependencies": {
@@ -47,6 +38,19 @@
         },
         "runtime": {
           "lib/netcoreapp2.0/Chance.NET.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "CsvHelper/30.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/CsvHelper.dll": {
             "related": ".xml"
           }
         }
@@ -362,19 +366,6 @@
         },
         "runtime": {
           "lib/netstandard1.3/SuperSocket.ClientEngine.dll": {}
-        }
-      },
-      "Syllabore/2.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Archigen": "1.2.0",
-          "System.Text.Json": "4.7.2"
-        },
-        "compile": {
-          "lib/netstandard2.0/Syllabore.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/Syllabore.dll": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -1157,19 +1148,6 @@
           }
         }
       },
-      "System.Text.Json/4.7.2": {
-        "type": "package",
-        "compile": {
-          "lib/netcoreapp3.0/System.Text.Json.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/netcoreapp3.0/System.Text.Json.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "System.Text.RegularExpressions/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1339,19 +1317,6 @@
           "bin/placeholder/ConstStr.dll": {}
         }
       },
-      "DataLibs/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "ConstStr": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/DataLibs.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/DataLibs.dll": {}
-        }
-      },
       "Events/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1362,13 +1327,25 @@
           "bin/placeholder/Events.dll": {}
         }
       },
+      "HqGpt/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/HqGpt.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HqGpt.dll": {}
+        }
+      },
       "Models/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Chance.NET": "2.2.0",
           "ConstStr": "1.0.0",
-          "DataLibs": "1.0.0",
+          "CsvHelper": "30.0.1",
+          "Events": "1.0.0",
+          "HqGpt": "1.0.0",
           "Selenium.WebDriver": "4.7.0",
           "SixLabors.ImageSharp": "2.1.3",
           "UnitsNet": "5.1.0"
@@ -1384,10 +1361,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "Chance.NET": "2.2.0",
-          "Config": "1.0.0",
-          "SixLabors.ImageSharp": "2.1.3",
-          "Syllabore": "2.0.1"
+          "CsvHelper": "30.0.1",
+          "SixLabors.ImageSharp": "2.1.3"
         },
         "compile": {
           "bin/placeholder/Utils.dll": {}
@@ -1399,19 +1374,6 @@
     }
   },
   "libraries": {
-    "Archigen/1.2.0": {
-      "sha512": "+OL5MICQWIpD16LMt5XAw73fLT8qktHVX0d21pedREKPS6Yi1O71kZuKQyyy6hVmzszI6rxZZ41Tkl6wlgXOdA==",
-      "type": "package",
-      "path": "archigen/1.2.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "archigen.1.2.0.nupkg.sha512",
-        "archigen.nuspec",
-        "lib/netstandard2.0/Archigen.dll"
-      ]
-    },
     "AsyncChromeDriver/0.5.8": {
       "sha512": "CeEZCWGeHBtJt566pVOFsz5/4v1n3jVjCgjyMwCtsfwVFqe5gmt/kLO4rG5oKh9bvcyO4d076XqcyQAYWaTOFQ==",
       "type": "package",
@@ -1462,6 +1424,30 @@
         "lib/netstandard1.6/Chance.NET.xml",
         "lib/netstandard2.0/Chance.NET.dll",
         "lib/netstandard2.0/Chance.NET.xml"
+      ]
+    },
+    "CsvHelper/30.0.1": {
+      "sha512": "rcZtgbWR+As4G3Vpgx0AMNmShGuQLFjkHAPIIflzrfkJCx8/AOd4m96ZRmiU1Wi39qS5UVjV0P8qdgqOo5Cwyg==",
+      "type": "package",
+      "path": "csvhelper/30.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "csvhelper.30.0.1.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net45/CsvHelper.dll",
+        "lib/net45/CsvHelper.xml",
+        "lib/net47/CsvHelper.dll",
+        "lib/net47/CsvHelper.xml",
+        "lib/net5.0/CsvHelper.dll",
+        "lib/net5.0/CsvHelper.xml",
+        "lib/net6.0/CsvHelper.dll",
+        "lib/net6.0/CsvHelper.xml",
+        "lib/netstandard2.0/CsvHelper.dll",
+        "lib/netstandard2.0/CsvHelper.xml",
+        "lib/netstandard2.1/CsvHelper.dll",
+        "lib/netstandard2.1/CsvHelper.xml"
       ]
     },
     "IAsyncWebBrowserClient/0.2.6": {
@@ -1927,19 +1913,6 @@
         "lib/sl50/SuperSocket.ClientEngine.dll",
         "supersocket.clientengine.core.0.10.0.nupkg.sha512",
         "supersocket.clientengine.core.nuspec"
-      ]
-    },
-    "Syllabore/2.0.1": {
-      "sha512": "BSmye9iSUbZhzagJnmT43zoQGc/pS6hpOPJoefkamFOnj/yxUvO96ijvbADc09vjddXL7t26e51jys1D3hUamw==",
-      "type": "package",
-      "path": "syllabore/2.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE",
-        "lib/netstandard2.0/Syllabore.dll",
-        "syllabore.2.0.1.nupkg.sha512",
-        "syllabore.nuspec"
       ]
     },
     "System.Collections/4.3.0": {
@@ -3959,28 +3932,6 @@
         "version.txt"
       ]
     },
-    "System.Text.Json/4.7.2": {
-      "sha512": "TcMd95wcrubm9nHvJEQs70rC0H/8omiSGGpU4FQ/ZA1URIqD4pjmFJh2Mfv1yH1eHgJDWTi2hMDXwTET+zOOyg==",
-      "type": "package",
-      "path": "system.text.json/4.7.2",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net461/System.Text.Json.dll",
-        "lib/net461/System.Text.Json.xml",
-        "lib/netcoreapp3.0/System.Text.Json.dll",
-        "lib/netcoreapp3.0/System.Text.Json.xml",
-        "lib/netstandard2.0/System.Text.Json.dll",
-        "lib/netstandard2.0/System.Text.Json.xml",
-        "system.text.json.4.7.2.nupkg.sha512",
-        "system.text.json.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    },
     "System.Text.RegularExpressions/4.3.0": {
       "sha512": "RpT2DA+L660cBt1FssIE9CAGpLFdFPuheB7pLpKpn6ZXNby7jDERe8Ua/Ne2xGiwLVG2JOqziiaVCGDon5sKFA==",
       "type": "package",
@@ -4390,15 +4341,15 @@
       "path": "../ConstStr/ConstStr.csproj",
       "msbuildProject": "../ConstStr/ConstStr.csproj"
     },
-    "DataLibs/1.0.0": {
-      "type": "project",
-      "path": "../DataLibs/DataLibs.csproj",
-      "msbuildProject": "../DataLibs/DataLibs.csproj"
-    },
     "Events/1.0.0": {
       "type": "project",
       "path": "../Events/Events.csproj",
       "msbuildProject": "../Events/Events.csproj"
+    },
+    "HqGpt/1.0.0": {
+      "type": "project",
+      "path": "../HqGpt/HqGpt.csproj",
+      "msbuildProject": "../HqGpt/HqGpt.csproj"
     },
     "Models/1.0.0": {
       "type": "project",

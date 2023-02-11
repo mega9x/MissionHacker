@@ -28,6 +28,7 @@ public static class MissionEvents
     /// 任务列表准备好时的事件.
     /// </summary>
     public static event EventHandler<MissionLoadedArgs> MissionLoadedEvent;
+    public static event EventHandler<NextCodeArgs> NextCodeEvent;
     public static void SetMissionDoneNum(int num)
     {
         MissionDoneEvent(num);
@@ -51,19 +52,20 @@ public static class MissionEvents
             SimpleMessage = simpleMessage,
         });
     }
-
     public static void ThrowException(object sender, ThrowEventArgs args)
     {
         ThrowExceptionEvent(sender, args);
     }
-
     public static void SendMsgToForm(object sender, string msg)
     {
         SendMsgToFormEvent(sender, msg);
     }
-
     public static void OnMissionLoaded(object sender, MissionLoadedArgs args)
     {
         MissionLoadedEvent(sender, args);
+    }
+    public static void NextCode(object sender, NextCodeArgs msg)
+    {
+        NextCodeEvent(sender, msg);
     }
 }

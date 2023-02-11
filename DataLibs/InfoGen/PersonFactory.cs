@@ -2,12 +2,14 @@
 using System.Security.Cryptography;
 using System.Text.Json;
 using ConstStr;
-using MissionHandler.InfoGen;
+using HqGpt;
 using Models.Data;
 using Models.Enum;
 using UnitsNet;
+using Utils.InfoGen;
+using Models.Data;
 
-namespace Utils.InfoGen
+namespace DataLibs.InfoGen
 {
     public static class PersonFactory
     {
@@ -30,6 +32,7 @@ namespace Utils.InfoGen
                 Birthday = date.Day,
                 Nickname = randomGen.GetRandomName(),
                 Profession = randomGen.GetRandomProfession(),
+                TextGenerator = new Gpt(Config.Config.Instance.MissionHackerConfig.AiApi.Base),
             };
             var client = new HttpClient()
             {
@@ -41,14 +44,31 @@ namespace Utils.InfoGen
             person.Photos = photos.ToList();
             return person;
         }
-
-        public static async Task<FileInfo?> GetPhoto(this SinglePerson person)
+        
+        public static async Task<SinglePerson> GenTextPerson()
         {
-            var filename = $"{person.Firstname}_{person.Lastname}_{person.Nickname}_{Guid.NewGuid()}.jpg";
-            var tmpPath = $"{Config.Config.Instance.MissionHackerConfig.General.ImageDir}/{filename}";
-            if (person.Photos != null && person.Photos.Count <= 0) return null;
-            await person.SaveAsJpg(filename, RandomNumberGenerator.GetInt32(0, person.Photos.Count));
-            return new FileInfo(filename);
+            var randomGen = new RandomGen();
+            var date = Date.GenRandomDate();
+
+            var person = new SinglePerson()
+            {
+                Firstname = randomGen.GetFirstName(),
+                Lastname = randomGen.GetLastName(),
+                Birthmonth = date.Month,
+                Birthday = date.Day,
+                Nickname = randomGen.GetRandomName(),
+                Profession = randomGen.GetRandomProfession(),
+                TextGenerator = new Gpt(Config.Config.Instance.MissionHackerConfig.AiApi.Base),
+            };
+            var client = new HttpClient()
+            {
+                BaseAddress = new Uri(Config.Config.Instance.MissionHackerConfig!.PhotoApi.Base)
+            };
+            person.Tall = person.Sex == Sex.Male ? Length.FromCentimeters(RandomNumberGenerator.GetInt32(165, 190)) : Length.FromCentimeters(RandomNumberGenerator.GetInt32(150, 181));
+            var response = await client.PostAsJsonAsync(Config.Config.Instance.MissionHackerConfig!.PhotoApi.GetPhotoEndpoint, person.PhotoRequest);
+            var photos = await response.Content.ReadFromJsonAsync<IEnumerable<string>>();
+            person.Photos = photos.ToList();
+            return person;
         }
     }
 }

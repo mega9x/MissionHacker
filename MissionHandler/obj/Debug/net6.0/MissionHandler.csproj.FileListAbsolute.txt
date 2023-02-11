@@ -30,3 +30,5 @@ E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Deb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\DataLibs.dll
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\ConstStr.pdb
 E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\DataLibs.pdb
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\HqGpt.dll
+E:\workspace\projects\project\MissionHacker\MissionHacker\MissionHandler\bin\Debug\net6.0\HqGpt.pdb

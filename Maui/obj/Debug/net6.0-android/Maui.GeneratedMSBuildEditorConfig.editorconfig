@@ -9,77 +9,77 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Maui
 build_property.RootNamespace = Maui
-build_property.ProjectDir = e:\workspace\projects\project\MissionHacker\MissionHacker\Maui\
+build_property.ProjectDir = E:\workspace\projects\project\MissionHacker\MissionHacker\Maui\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = e:\workspace\projects\project\MissionHacker\MissionHacker\Maui
+build_property.MSBuildProjectDirectory = E:\workspace\projects\project\MissionHacker\MissionHacker\Maui
 build_property._RazorSourceGeneratorDebug = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/App.xaml]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Maui.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/MainPage.xaml]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Maui.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Main.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Main.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = TWFpbi5yYXpvcg==
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Pages/Counter.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Pages/Counter.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Pages/FetchData.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Pages/Index.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Pages/Index.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Shared/SurveyPrompt.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/_Imports.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/_Imports.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = 
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Shared/MainLayout.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = b-sj3xiwcncy
 
-[e:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Shared/NavMenu.razor]
+[E:/workspace/projects/project/MissionHacker/MissionHacker/Maui/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.GenKind = 
 build_metadata.AdditionalFiles.ManifestResourceName = 
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
